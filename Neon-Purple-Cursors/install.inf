@@ -1,0 +1,40 @@
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur
+AddReg = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+
+[Strings]
+CUR_DIR       = "Cursors\Neon-Purple"
+SCHEME_NAME   = "Neon Purple"
+
+[Scheme.Cur]
+arrow.cur
+hand.cur
+text.cur
+crosshair.cur
+move.cur
+not-allowed.cur
+resize-ew.cur
+resize-ns.cur
+resize-nwse.cur
+resize-nesw.cur
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors","Arrow",,"%10%\%CUR_DIR%\arrow.cur"
+HKCU,"Control Panel\Cursors","Hand",,"%10%\%CUR_DIR%\hand.cur"
+HKCU,"Control Panel\Cursors","IBeam",,"%10%\%CUR_DIR%\text.cur"
+HKCU,"Control Panel\Cursors","Crosshair",,"%10%\%CUR_DIR%\crosshair.cur"
+HKCU,"Control Panel\Cursors","SizeAll",,"%10%\%CUR_DIR%\move.cur"
+HKCU,"Control Panel\Cursors","No",,"%10%\%CUR_DIR%\not-allowed.cur"
+HKCU,"Control Panel\Cursors","SizeWE",,"%10%\%CUR_DIR%\resize-ew.cur"
+HKCU,"Control Panel\Cursors","SizeNS",,"%10%\%CUR_DIR%\resize-ns.cur"
+HKCU,"Control Panel\Cursors","SizeNWSE",,"%10%\%CUR_DIR%\resize-nwse.cur"
+HKCU,"Control Panel\Cursors","SizeNESW",,"%10%\%CUR_DIR%\resize-nesw.cur"
+
+; Set scheme name
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,""

@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#b65cff" flood-opacity="1"/>
+    </filter>
+  </defs>
+  <!-- Stylized diagonal resize NE-SW with central circle -->
+  <circle cx="16" cy="16" r="3" fill="#050505" stroke="#b65cff" stroke-width="2.5" filter="url(#neon-glow)"/>
+  <path d="M28 4 L22 4 M28 4 L28 10 M28 4 L18.5 13.5 M4 28 L10 28 M4 28 L4 22 M4 28 L13.5 18.5" fill="none" stroke="#b65cff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" filter="url(#neon-glow)"/>
+</svg>

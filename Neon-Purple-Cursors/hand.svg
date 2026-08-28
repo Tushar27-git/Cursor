@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#b65cff" flood-opacity="1"/>
+    </filter>
+  </defs>
+  <!-- Stylized hand -->
+  <path d="M14 16 L14 7 A2 2 0 0 1 18 7 L18 12 M18 9 A2 2 0 0 1 22 9 L22 13 M22 10 A2 2 0 0 1 26 10 L26 18 A5 5 0 0 1 21 23 L15 23 L10 18 A2 2 0 0 1 11 15 L14 16 Z" fill="#050505" stroke="#b65cff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" filter="url(#neon-glow)"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#b65cff" flood-opacity="1"/>
+    </filter>
+  </defs>
+  <!-- Stylized crosshair (hollow center) -->
+  <path d="M16 4 L16 12 M16 20 L16 28 M4 16 L12 16 M20 16 L28 16" fill="none" stroke="#b65cff" stroke-width="2.5" stroke-linecap="square" filter="url(#neon-glow)"/>
+</svg>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Purple Cursors Preview</title>
+<style>
+  body {
+    background-color: #1a1b26;
+    background-image: 
+      radial-gradient(#2f334d 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: white;
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    background-color: rgba(20, 20, 30, 0.8);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .cursor-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+  }
+  .cursor-box:hover {
+    background-color: rgba(255,255,255,0.05);
+  }
+  .cursor-box img {
+    width: 32px;
+    height: 32px;
+    /* Optional: custom hover effect applying the cursor */
+  }
+  .label {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #a9b1d6;
+  }
+</style>
+</head>
+<body>
+
+<h1>Neon Purple Cursors Preview</h1>
+
+<div class="grid">
+  <div class="cursor-box" style="cursor: url('arrow.svg') 6 6, auto;">
+    <img src="arrow.svg" alt="Normal Select">
+    <div class="label">Normal</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('hand.svg') 12 10, auto;">
+    <img src="hand.svg" alt="Link Select">
+    <div class="label">Link</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('text.svg') 16 16, auto;">
+    <img src="text.svg" alt="Text Select">
+    <div class="label">Text</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('crosshair.svg') 16 16, auto;">
+    <img src="crosshair.svg" alt="Precision">
+    <div class="label">Precision</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('move.svg') 16 16, auto;">
+    <img src="move.svg" alt="Move">
+    <div class="label">Move</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('not-allowed.svg') 16 16, auto;">
+    <img src="not-allowed.svg" alt="Not Allowed">
+    <div class="label">Unavailable</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('resize-ew.svg') 16 16, auto;">
+    <img src="resize-ew.svg" alt="Horizontal Resize">
+    <div class="label">Resize E-W</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('resize-ns.svg') 16 16, auto;">
+    <img src="resize-ns.svg" alt="Vertical Resize">
+    <div class="label">Resize N-S</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('resize-nwse.svg') 16 16, auto;">
+    <img src="resize-nwse.svg" alt="Diagonal Resize 1">
+    <div class="label">Resize NW-SE</div>
+  </div>
+  <div class="cursor-box" style="cursor: url('resize-nesw.svg') 16 16, auto;">
+    <img src="resize-nesw.svg" alt="Diagonal Resize 2">
+    <div class="label">Resize NE-SW</div>
+  </div>
+</div>
+
+<script>
+  // Apply cursors dynamically on hover over the grid container as well
+</script>
+
+</body>
+</html>

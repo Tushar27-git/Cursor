@@ -11,11 +11,14 @@ if (-not (Test-Path $distDir)) {
     exit 1
 }
 
+$busyFile = if (Test-Path (Join-Path $distDir "mono_busy.ani")) { Join-Path $distDir "mono_busy.ani" } else { Join-Path $distDir "mono_busy.cur" }
+$appStartingFile = if (Test-Path (Join-Path $distDir "mono_working_in_background.ani")) { Join-Path $distDir "mono_working_in_background.ani" } else { Join-Path $distDir "mono_working_in_background.cur" }
+
 $cursorMap = @{
     "Arrow"         = Join-Path $distDir "mono_normal_select.cur"
     "Help"          = Join-Path $distDir "mono_help_select.cur"
-    "AppStarting"   = Join-Path $distDir "mono_working_in_background.cur"
-    "Wait"          = Join-Path $distDir "mono_busy.cur"
+    "AppStarting"   = $appStartingFile
+    "Wait"          = $busyFile
     "Crosshair"     = Join-Path $distDir "mono_precision_select.cur"
     "IBeam"         = Join-Path $distDir "mono_text_select.cur"
     "NWPen"         = Join-Path $distDir "mono_handwriting.cur"

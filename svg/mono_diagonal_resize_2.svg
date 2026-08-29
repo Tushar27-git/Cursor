@@ -3,60 +3,71 @@
     <style>
       .contrast-stroke {
         stroke: #000000;
-        stroke-opacity: 0.65;
-        stroke-width: 7.8;
+        stroke-opacity: 0.75;
+        stroke-width: 8.0;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: #000000;
+      }
+      .outline-stroke {
+        stroke: #F5F1FF;
+        stroke-width: 5.0;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: #000000;
+      }
+      .contrast-stroke-hollow {
+        stroke: #000000;
+        stroke-opacity: 0.75;
+        stroke-width: 8.0;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
       }
-      .outline-stroke {
+      .outline-stroke-hollow {
         stroke: #F5F1FF;
-        stroke-width: 4.8;
+        stroke-width: 5.0;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
       }
       .contrast-stroke-lean {
         stroke: #000000;
-        stroke-opacity: 0.65;
-        stroke-width: 6.2;
+        stroke-opacity: 0.75;
+        stroke-width: 6.8;
         stroke-linecap: round;
         stroke-linejoin: round;
-        fill: none;
+        fill: #000000;
       }
       .outline-stroke-lean {
         stroke: #F5F1FF;
-        stroke-width: 3.8;
+        stroke-width: 4.0;
         stroke-linecap: round;
         stroke-linejoin: round;
-        fill: none;
+        fill: #000000;
       }
       .accent-fill {
         fill: #B18CFF;
       }
       .accent-stroke {
         stroke: #B18CFF;
-        stroke-width: 4.8;
+        stroke-width: 5.0;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
       }
       .contrast-fill {
         fill: #000000;
-        fill-opacity: 0.65;
+        fill-opacity: 0.75;
+      }
+      .solid-black {
+        fill: #000000;
       }
     </style>
   </defs>
 
-  <!-- NE to SW Double-Headed Diagonal Arrow -->
-  <!-- Contrast Stroke -->
-  <path class="contrast-stroke" d="M 39 12 L 52 12 L 52 25" />
-  <path class="contrast-stroke" d="M 52 12 L 12 52" />
-  <path class="contrast-stroke" d="M 12 39 L 12 52 L 25 52" />
-
-  <!-- Pale Lilac Outline -->
-  <path class="outline-stroke" d="M 39 12 L 52 12 L 52 25" />
-  <path class="outline-stroke" d="M 52 12 L 12 52" />
-  <path class="outline-stroke" d="M 12 39 L 12 52 L 25 52" />
+  <!-- Solid Black NE to SW Diagonal Arrow -->
+  <path class="contrast-stroke" d="M 40 9 L 55 9 L 55 24 L 49 18 L 18 49 L 24 55 L 9 55 L 9 40 L 15 46 L 46 15 Z" />
+  <path class="outline-stroke" d="M 40 9 L 55 9 L 55 24 L 49 18 L 18 49 L 24 55 L 9 55 L 9 40 L 15 46 L 46 15 Z" />
 
 </svg>

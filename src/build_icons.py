@@ -284,9 +284,9 @@ ICONS["diagonal_resize_1"] = {
     "name": "Diagonal Resize 1 (NWSE)",
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
-  <!-- Solid Black NW to SE Diagonal Arrow -->
-  <path class="contrast-stroke" d="M 9 24 L 9 9 L 24 9 L 18 15 L 49 46 L 55 40 L 55 55 L 40 55 L 46 49 L 15 18 Z" />
-  <path class="outline-stroke" d="M 9 24 L 9 9 L 24 9 L 18 15 L 49 46 L 55 40 L 55 55 L 40 55 L 46 49 L 15 18 Z" />
+  <!-- Solid Black NW to SE Diagonal Arrow (Scaled -10% for Optical Balance) -->
+  <path class="contrast-stroke" d="M 13 25 L 13 13 L 25 13 L 20 18 L 46 44 L 51 39 L 51 51 L 39 51 L 44 46 L 18 20 Z" />
+  <path class="outline-stroke" d="M 13 25 L 13 13 L 25 13 L 20 18 L 46 44 L 51 39 L 51 51 L 39 51 L 44 46 L 18 20 Z" />
 """
 }
 
@@ -297,9 +297,9 @@ ICONS["diagonal_resize_2"] = {
     "name": "Diagonal Resize 2 (NESW)",
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
-  <!-- Solid Black NE to SW Diagonal Arrow -->
-  <path class="contrast-stroke" d="M 40 9 L 55 9 L 55 24 L 49 18 L 18 49 L 24 55 L 9 55 L 9 40 L 15 46 L 46 15 Z" />
-  <path class="outline-stroke" d="M 40 9 L 55 9 L 55 24 L 49 18 L 18 49 L 24 55 L 9 55 L 9 40 L 15 46 L 46 15 Z" />
+  <!-- Solid Black NE to SW Diagonal Arrow (Scaled -10% for Optical Balance) -->
+  <path class="contrast-stroke" d="M 39 13 L 51 13 L 51 25 L 46 20 L 20 46 L 25 51 L 13 51 L 13 39 L 18 44 L 44 18 Z" />
+  <path class="outline-stroke" d="M 39 13 L 51 13 L 51 25 L 46 20 L 20 46 L 25 51 L 13 51 L 13 39 L 18 44 L 44 18 Z" />
 """
 }
 

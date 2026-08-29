@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MONO — Live Cursor & Busy Tester</title>
+  <style>
+    :root {
+      --bg: #0C0A14;
+      --card-bg: #151124;
+      --card-border: #2E2648;
+      --accent: #B18CFF;
+      --outline: #F5F1FF;
+      --text-main: #F5F1FF;
+      --text-sub: #9E94BD;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* Set custom cursors dynamically */
+    .cursor-busy {
+      cursor: url('dist/mono_busy.cur'), wait !important;
+    }
+
+    .cursor-appstarting {
+      cursor: url('dist/mono_working_in_background.cur'), progress !important;
+    }
+
+    .cursor-normal {
+      cursor: url('dist/mono_normal_select.cur'), default;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #F5F1FF 0%, #B18CFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      color: var(--text-sub);
+      font-size: 15px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .test-board {
+      background: var(--card-bg);
+      border: 2px dashed var(--card-border);
+      border-radius: 20px;
+      padding: 40px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .test-board.active-busy {
+      border-color: var(--accent);
+      background: #1C1632;
+      box-shadow: 0 0 30px rgba(177, 140, 255, 0.15);
+    }
+
+    .status-text {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .status-desc {
+      color: var(--text-sub);
+      font-size: 14px;
+    }
+
+    .progress-bar-container {
+      width: 80%;
+      height: 10px;
+      background: #251E3A;
+      border-radius: 10px;
+      margin-top: 20px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #7A42E6, #B18CFF);
+      border-radius: 10px;
+      transition: width 0.05s linear;
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    button {
+      background: var(--card-bg);
+      color: var(--text-main);
+      border: 1.5px solid var(--card-border);
+      padding: 16px 20px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    button:hover {
+      background: #231C3C;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .grid-section {
+      margin-top: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .grid-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--outline);
+    }
+
+    .cursor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+
+    .cursor-card {
+      background: #0E0C18;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 10px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .cursor-card:hover {
+      border-color: var(--accent);
+      background: #1A142E;
+    }
+
+    .cursor-card img {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 8px;
+    }
+
+    .cursor-card span {
+      display: block;
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+  </style>
+</head>
+<body class="cursor-normal">
+
+  <div class="container">
+    <header>
+      <h1>MONO Cursor Live Tester</h1>
+      <p class="subtitle">Experience the custom Busy & Working-in-Background cursors in real time.</p>
+    </header>
+
+    <!-- Interactive Live Simulation Area -->
+    <div class="test-board" id="testBoard">
+      <div class="status-text" id="statusText">Hover Here to Test</div>
+      <div class="status-desc" id="statusDesc">Click a button below to trigger live system state changes.</div>
+      <div class="progress-bar-container" id="progressContainer">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="btn-row">
+      <button onclick="triggerBusy(5)">
+        ⏳ Simulate 5-Sec Busy State
+      </button>
+      <button onclick="triggerAppStarting(4)">
+        🔄 Test Working in Background
+      </button>
+    </div>
+
+    <!-- All 17 Cursors Interactive Grid -->
+    <div class="grid-section">
+      <div class="grid-title">Hover over each card to preview specific cursor:</div>
+      <div class="cursor-grid">
+        <div class="cursor-card" style="cursor: url('dist/mono_normal_select.cur'), default;">
+          <img src="png/64x64/mono_normal_select_64x64.png" alt="Normal">
+          <span>Normal Select</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_busy.cur'), wait;">
+          <img src="png/64x64/mono_busy_64x64.png" alt="Busy">
+          <span>Busy / Wait</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_working_in_background.cur'), progress;">
+          <img src="png/64x64/mono_working_in_background_64x64.png" alt="AppStarting">
+          <span>Background</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_help_select.cur'), help;">
+          <img src="png/64x64/mono_help_select_64x64.png" alt="Help">
+          <span>Help Select</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_precision_select.cur'), crosshair;">
+          <img src="png/64x64/mono_precision_select_64x64.png" alt="Crosshair">
+          <span>Precision</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_text_select.cur'), text;">
+          <img src="png/64x64/mono_text_select_64x64.png" alt="Text">
+          <span>Text Select</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_handwriting.cur'), crosshair;">
+          <img src="png/64x64/mono_handwriting_64x64.png" alt="Pen">
+          <span>Handwriting</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_unavailable.cur'), not-allowed;">
+          <img src="png/64x64/mono_unavailable_64x64.png" alt="No">
+          <span>Unavailable</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_move.cur'), move;">
+          <img src="png/64x64/mono_move_64x64.png" alt="Move">
+          <span>Move</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_link_select.cur'), pointer;">
+          <img src="png/64x64/mono_link_select_64x64.png" alt="Link">
+          <span>Link Select</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const board = document.getElementById('testBoard');
+    const statusText = document.getElementById('statusText');
+    const statusDesc = document.getElementById('statusDesc');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressBar = document.getElementById('progressBar');
+
+    let busyTimer = null;
+
+    function triggerBusy(seconds) {
+      clearInterval(busyTimer);
+      document.body.className = 'cursor-busy';
+      board.classList.add('active-busy');
+      statusText.textContent = '⏳ BUSY STATE ACTIVE';
+      statusDesc.textContent = 'System is executing a heavy background task. Notice your custom MONO Busy cursor!';
+      progressContainer.style.display = 'block';
+      progressBar.style.width = '0%';
+
+      let progress = 0;
+      const intervalMs = 50;
+      const step = (100 / (seconds * 1000)) * intervalMs;
+
+      busyTimer = setInterval(() => {
+        progress += step;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(busyTimer);
+          document.body.className = 'cursor-normal';
+          board.classList.remove('active-busy');
+          statusText.textContent = '✅ Task Completed!';
+          statusDesc.textContent = 'Cursor restored to normal state.';
+          setTimeout(() => { progressContainer.style.display = 'none'; }, 1000);
+        }
+        progressBar.style.width = progress + '%';
+      }, intervalMs);
+    }
+
+    function triggerAppStarting(seconds) {
+      clearInterval(busyTimer);
+      document.body.className = 'cursor-appstarting';
+      board.classList.add('active-busy');
+      statusText.textContent = '🔄 APP STARTING';
+      statusDesc.textContent = 'Working in background — pointer with spinner active.';
+      progressContainer.style.display = 'block';
+      progressBar.style.width = '0%';
+
+      let progress = 0;
+      const intervalMs = 50;
+      const step = (100 / (seconds * 1000)) * intervalMs;
+
+      busyTimer = setInterval(() => {
+        progress += step;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(busyTimer);
+          document.body.className = 'cursor-normal';
+          board.classList.remove('active-busy');
+          statusText.textContent = '✅ App Launched!';
+          statusDesc.textContent = 'Cursor restored to normal state.';
+          setTimeout(() => { progressContainer.style.display = 'none'; }, 1000);
+        }
+        progressBar.style.width = progress + '%';
+      }, intervalMs);
+    }
+  </script>
+</body>
+</html>

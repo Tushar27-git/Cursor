@@ -400,6 +400,133 @@ ICONS["person_select"] = {
 """
 }
 
+# 18. Text Drag & Move (Draft / DragMove)
+ICONS["text_drag"] = {
+    "key": "Draft",
+    "filename": "mono_text_drag",
+    "name": "Text Drag",
+    "hotspot": (10 / 64, 5 / 64),
+    "svg": """
+  <!-- Base Pointer Contrast + Solid Black -->
+  <path class="contrast-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
+           Z" />
+
+  <path class="outline-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
+           Z" />
+
+  <!-- Purple Pill in Heel -->
+  <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
+
+  <!-- Text Drag Document Card at Lower Right (Solid Black + Lilac Outline) -->
+  <rect class="contrast-stroke-lean" x="35" y="32" width="23" height="26" rx="4" ry="4" />
+  <rect class="outline-stroke-lean" x="35" y="32" width="23" height="26" rx="4" ry="4" />
+
+  <!-- 3 Purple Text Lines inside Dragged Document -->
+  <rect class="accent-fill" x="40" y="38" width="13" height="2.5" rx="1.25" />
+  <rect class="accent-fill" x="40" y="44" width="13" height="2.5" rx="1.25" />
+  <rect class="accent-fill" x="40" y="50" width="8" height="2.5" rx="1.25" />
+"""
+}
+
+# 19. Copy Drag (Copy / DragCopy)
+ICONS["drag_copy"] = {
+    "key": "Copy",
+    "filename": "mono_drag_copy",
+    "name": "Copy Drag",
+    "hotspot": (10 / 64, 5 / 64),
+    "svg": """
+  <!-- Base Pointer Contrast + Solid Black -->
+  <path class="contrast-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
+           Z" />
+
+  <path class="outline-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
+           Z" />
+
+  <!-- Purple Pill in Heel -->
+  <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
+
+  <!-- Plus (+) Copy Badge at Lower Right -->
+  <circle cx="51" cy="49" r="10" fill="#000000" />
+  <circle class="contrast-stroke-lean" cx="51" cy="49" r="8.8" />
+  <circle class="accent-fill" cx="51" cy="49" r="8.5" />
+  
+  <!-- Plus (+) Icon Inside Badge -->
+  <line x1="51" y1="44" x2="51" y2="54" stroke="#F5F1FF" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="46" y1="49" x2="56" y2="49" stroke="#F5F1FF" stroke-width="2.5" stroke-linecap="round" />
+"""
+}
+
+# 20. No Drop (DndNoDrop)
+ICONS["dnd_no_drop"] = {
+    "key": "NoDrop",
+    "filename": "mono_dnd_no_drop",
+    "name": "No Drop",
+    "hotspot": (10 / 64, 5 / 64),
+    "svg": """
+  <!-- Base Pointer Contrast + Solid Black -->
+  <path class="contrast-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
+           Z" />
+
+  <path class="outline-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
+           Z" />
+
+  <!-- Purple Pill in Heel -->
+  <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
+
+  <!-- Mini Unavailable Badge at Lower Right -->
+  <circle cx="51" cy="49" r="10" fill="#000000" />
+  <circle class="contrast-stroke-lean" cx="51" cy="49" r="8.8" />
+  <circle class="outline-stroke-lean" cx="51" cy="49" r="8.8" />
+  <line x1="45" y1="43" x2="57" y2="55" stroke="#B18CFF" stroke-width="2.5" stroke-linecap="round" />
+"""
+}
+
+# 21. Vertical Text Select
+ICONS["vertical_text"] = {
+    "key": "VerticalText",
+    "filename": "mono_vertical_text",
+    "name": "Vertical Text",
+    "hotspot": (32 / 64, 32 / 64),
+    "svg": """
+  <!-- Horizontal I-Beam for Vertical Text Selection -->
+  <path class="contrast-stroke" d="M 10 17 L 10 47 C 18 43, 46 43, 54 47 L 54 17 C 46 21, 18 21, 10 17 Z" />
+  <path class="outline-stroke" d="M 10 17 L 10 47 C 18 43, 46 43, 54 47 L 54 17 C 46 21, 18 21, 10 17 Z" />
+
+  <!-- Horizontal Purple Accent Bar -->
+  <rect class="accent-fill" x="16.5" y="29.8" width="31" height="4.4" rx="2.2" />
+"""
+}
+
 def build_all_svgs(output_dir="svg"):
     os.makedirs(output_dir, exist_ok=True)
     generated = []

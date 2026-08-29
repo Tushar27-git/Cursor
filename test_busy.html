@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MONO — Busy Cursor & System Stress Studio</title>
+  <title>MONO — Live Cursor & Text Drag Studio</title>
   <style>
     :root {
       --bg: #090812;
@@ -33,33 +33,16 @@
     }
 
     /* Dynamic Cursor Classes */
-    body.cursor-busy {
-      cursor: url('dist/mono_busy.cur'), wait !important;
-    }
-
-    body.cursor-appstarting {
-      cursor: url('dist/mono_working_in_background.cur'), progress !important;
-    }
-
-    body.cursor-normal {
-      cursor: url('dist/mono_normal_select.cur'), default;
-    }
-
-    body.cursor-crosshair {
-      cursor: url('dist/mono_precision_select.cur'), crosshair !important;
-    }
-
-    body.cursor-text {
-      cursor: url('dist/mono_text_select.cur'), text !important;
-    }
-
-    body.cursor-move {
-      cursor: url('dist/mono_move.cur'), move !important;
-    }
+    body.cursor-busy { cursor: url('dist/mono_busy.cur'), wait !important; }
+    body.cursor-appstarting { cursor: url('dist/mono_working_in_background.cur'), progress !important; }
+    body.cursor-normal { cursor: url('dist/mono_normal_select.cur'), default; }
+    body.cursor-text-drag { cursor: url('dist/mono_text_drag.cur'), copy !important; }
+    body.cursor-drag-copy { cursor: url('dist/mono_drag_copy.cur'), copy !important; }
+    body.cursor-no-drop { cursor: url('dist/mono_dnd_no_drop.cur'), no-drop !important; }
 
     .container {
       width: 100%;
-      max-width: 860px;
+      max-width: 880px;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -90,68 +73,7 @@
       font-size: 13px;
     }
 
-    /* Live 60 FPS Orbiting Spinner Canvas */
-    #spinnerCanvas {
-      width: 60px;
-      height: 60px;
-      animation: spin 2s linear infinite;
-    }
-
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Hero Interactive Area */
-    .hero-box {
-      background: #151126;
-      border: 2px dashed var(--card-border);
-      border-radius: 20px;
-      padding: 35px 20px;
-      text-align: center;
-      transition: all 0.3s ease;
-      min-height: 170px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-box.active-stress {
-      border-color: var(--accent);
-      background: #1F1738;
-      box-shadow: 0 0 35px rgba(177, 140, 255, 0.2);
-    }
-
-    .hero-title {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .hero-desc {
-      color: var(--text-sub);
-      font-size: 14px;
-    }
-
-    .progress-bar-container {
-      width: 85%;
-      height: 12px;
-      background: #251D3C;
-      border-radius: 10px;
-      margin-top: 18px;
-      overflow: hidden;
-      display: none;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #7A42E6, #B18CFF);
-      border-radius: 10px;
-      transition: width 0.05s linear;
-    }
-
-    /* Grid Section & Cards */
+    /* Card Panels */
     .card-panel {
       background: var(--card-bg);
       border: 1.5px solid var(--card-border);
@@ -160,7 +82,7 @@
     }
 
     .panel-title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       margin-bottom: 14px;
       color: var(--outline);
@@ -169,9 +91,102 @@
       gap: 8px;
     }
 
+    /* Text Drag & Drop Playground */
+    .drag-playground {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .drag-source-box {
+      background: #0E0B1A;
+      border: 1.5px solid #332854;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .draggable-pill {
+      display: inline-block;
+      background: #231C3C;
+      color: #F5F1FF;
+      border: 1px solid var(--accent);
+      padding: 8px 14px;
+      border-radius: 8px;
+      margin: 6px 4px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: url('dist/mono_text_drag.cur'), grab;
+      user-select: text;
+      transition: all 0.2s ease;
+    }
+
+    .draggable-pill:hover {
+      background: #342858;
+      box-shadow: 0 0 15px rgba(177, 140, 255, 0.25);
+    }
+
+    .draggable-pill:active {
+      cursor: url('dist/mono_text_drag.cur'), grabbing;
+    }
+
+    .drop-target-box {
+      background: #110D20;
+      border: 2px dashed #43356E;
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 140px;
+      transition: all 0.2s ease;
+      cursor: url('dist/mono_drag_copy.cur'), copy;
+    }
+
+    .drop-target-box.drag-over {
+      border-color: var(--accent);
+      background: #1F173C;
+      box-shadow: 0 0 25px rgba(177, 140, 255, 0.3);
+    }
+
+    /* Cursor Grid */
+    .cursor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+
+    .cursor-card {
+      background: #0E0C18;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 8px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .cursor-card:hover {
+      border-color: var(--accent);
+      background: #1A142E;
+    }
+
+    .cursor-card img {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 6px;
+    }
+
+    .cursor-card span {
+      display: block;
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
     .btn-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
     }
 
@@ -185,49 +200,11 @@
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
     }
 
     button:hover {
       background: #271E44;
       border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    button.active-toggle {
-      background: var(--accent);
-      color: #090812;
-      border-color: #FFFFFF;
-    }
-
-    /* Multi-Res DPI Inspector */
-    .res-row {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      background: #0E0B1A;
-      border-radius: 12px;
-      padding: 16px;
-    }
-
-    .res-item {
-      text-align: center;
-    }
-
-    .res-item img {
-      display: block;
-      margin: 0 auto 6px;
-      image-rendering: pixelated;
-    }
-
-    .res-item span {
-      font-size: 11px;
-      color: var(--text-sub);
     }
   </style>
 </head>
@@ -236,175 +213,106 @@
   <div class="container">
     <header>
       <div>
-        <h1>MONO Cursor Stress Studio</h1>
-        <p class="subtitle">Live Busy state stress testing, multi-core workload simulator & 60fps spinner inspector.</p>
+        <h1>MONO — Live Text Drag & Cursor Studio</h1>
+        <p class="subtitle">Experience your custom Text Drag, Copy Drag, and full cursor set in real time.</p>
       </div>
-      <!-- SVG Tri-Arc Spinner in Header -->
-      <svg id="spinnerCanvas" viewBox="0 0 64 64" width="60" height="60">
-        <circle cx="32" cy="32" r="23" fill="#000000" />
-        <path d="M 32 14.5 A 19.8 19.8 0 0 1 47.8 41.8" stroke="#F5F1FF" stroke-width="5" fill="none" stroke-linecap="round" />
-        <path d="M 47.8 41.8 A 19.8 19.8 0 0 1 16.2 41.8" stroke="#F5F1FF" stroke-width="5" fill="none" stroke-linecap="round" />
-        <path d="M 16.2 41.8 A 19.8 19.8 0 0 1 32 14.5" stroke="#F5F1FF" stroke-width="5" fill="none" stroke-linecap="round" />
-        <circle cx="32" cy="14.5" r="5.4" fill="#B18CFF" />
-        <circle cx="47.8" cy="41.8" r="5.4" fill="#B18CFF" />
-        <circle cx="16.2" cy="41.8" r="5.4" fill="#B18CFF" />
-      </svg>
+      <img src="png/64x64/mono_text_drag_64x64.png" width="56" height="56" alt="Text Drag">
     </header>
 
-    <!-- Main Live Interactive Area -->
-    <div class="hero-box" id="heroBox">
-      <div class="hero-title" id="heroTitle">⚡ Move Cursor Anywhere Inside This Box</div>
-      <div class="hero-desc" id="heroDesc">Click any stress test scenario below to see your custom MONO Busy cursor in action.</div>
-      <div class="progress-bar-container" id="progressContainer">
-        <div class="progress-bar" id="progressBar"></div>
+    <!-- Interactive Text Drag & Drop Zone -->
+    <div class="card-panel">
+      <div class="panel-title">📄 Interactive Text Drag & Drop Playground:</div>
+      <p style="color: #9E94BD; font-size: 13px; margin-bottom: 12px;">
+        Highlight or click & drag any text pill below into the drop target on the right to see your custom <b>MONO Text Drag</b> and <b>Copy Drag</b> cursors!
+      </p>
+      <div class="drag-playground">
+        <!-- Source Box -->
+        <div class="drag-source-box">
+          <div style="font-size: 12px; font-weight: bold; color: #EDE4FF; margin-bottom: 8px;">Drag any item:</div>
+          <div class="draggable-pill" draggable="true">✨ Select & Drag this text</div>
+          <div class="draggable-pill" draggable="true">⚡ MONO Vector Glyph</div>
+          <div class="draggable-pill" draggable="true">🎯 Pixel-Perfect Hotspot</div>
+          <div class="draggable-pill" draggable="true">💜 Soft Lilac Accent</div>
+        </div>
+
+        <!-- Drop Box -->
+        <div class="drop-target-box" id="dropTarget">
+          <div style="font-size: 14px; font-weight: bold; margin-bottom: 4px;" id="dropTitle">📥 Drop Target Box</div>
+          <div style="font-size: 12px; color: #9E94BD;" id="dropSub">Hover dragged text here to test Drop state</div>
+        </div>
       </div>
     </div>
 
-    <!-- Stress Scenarios Grid -->
+    <!-- Drag & Drop Cursor Family Grid -->
     <div class="card-panel">
-      <div class="panel-title">🔥 Stress Test Scenarios:</div>
-      <div class="btn-grid">
-        <button onclick="runCpuStress(5)">
-          💥 5-Second CPU Matrix Stress Test
-        </button>
-        <button onclick="runCpuStress(10)">
-          ⚡ 10-Second Heavy Load Simulation
-        </button>
-        <button id="infiniteBtn" onclick="toggleInfiniteBusy()">
-          🔒 Toggle Continuous Infinite Busy Mode
-        </button>
-        <button onclick="runFlappingStress()">
-          🌪️ Rapid 60 FPS Cursor Flapping
-        </button>
-      </div>
-    </div>
-
-    <!-- Multi-Res DPI Inspector -->
-    <div class="card-panel">
-      <div class="panel-title">🔍 Multi-Resolution DPI Inspector (mono_busy):</div>
-      <div class="res-row">
-        <div class="res-item" style="cursor: url('dist/mono_busy.cur'), wait;">
-          <img src="png/16x16/mono_busy_16x16.png" width="16" height="16" alt="16">
-          <span>16×16</span>
+      <div class="panel-title">✨ Drag & Drop + Advanced Cursor Family (Hover to test):</div>
+      <div class="cursor-grid">
+        <div class="cursor-card" style="cursor: url('dist/mono_text_drag.cur'), copy;">
+          <img src="png/64x64/mono_text_drag_64x64.png" alt="Text Drag">
+          <span>Text Drag & Move</span>
         </div>
-        <div class="res-item" style="cursor: url('dist/mono_busy.cur'), wait;">
-          <img src="png/24x24/mono_busy_24x24.png" width="24" height="24" alt="24">
-          <span>24×24</span>
+        <div class="cursor-card" style="cursor: url('dist/mono_drag_copy.cur'), copy;">
+          <img src="png/64x64/mono_drag_copy_64x64.png" alt="Copy Drag">
+          <span>Copy / Drag-Add</span>
         </div>
-        <div class="res-item" style="cursor: url('dist/mono_busy.cur'), wait;">
-          <img src="png/32x32/mono_busy_32x32.png" width="32" height="32" alt="32">
-          <span>32×32</span>
+        <div class="cursor-card" style="cursor: url('dist/mono_dnd_no_drop.cur'), no-drop;">
+          <img src="png/64x64/mono_dnd_no_drop_64x64.png" alt="No Drop">
+          <span>No Drop Target</span>
         </div>
-        <div class="res-item" style="cursor: url('dist/mono_busy.cur'), wait;">
-          <img src="png/48x48/mono_busy_48x48.png" width="48" height="48" alt="48">
-          <span>48×48</span>
+        <div class="cursor-card" style="cursor: url('dist/mono_vertical_text.cur'), vertical-text;">
+          <img src="png/64x64/mono_vertical_text_64x64.png" alt="Vertical Text">
+          <span>Vertical Text</span>
         </div>
-        <div class="res-item" style="cursor: url('dist/mono_busy.cur'), wait;">
-          <img src="png/64x64/mono_busy_64x64.png" width="64" height="64" alt="64">
-          <span>64×64</span>
+        <div class="cursor-card" style="cursor: url('dist/mono_text_select.cur'), text;">
+          <img src="png/64x64/mono_text_select_64x64.png" alt="Text Select">
+          <span>Text Select (IBeam)</span>
+        </div>
+        <div class="cursor-card" style="cursor: url('dist/mono_busy.cur'), wait;">
+          <img src="png/64x64/mono_busy_64x64.png" alt="Busy">
+          <span>Busy / Wait</span>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    const heroBox = document.getElementById('heroBox');
-    const heroTitle = document.getElementById('heroTitle');
-    const heroDesc = document.getElementById('heroDesc');
-    const progressContainer = document.getElementById('progressContainer');
-    const progressBar = document.getElementById('progressBar');
-    const infiniteBtn = document.getElementById('infiniteBtn');
+    const dropTarget = document.getElementById('dropTarget');
+    const dropTitle = document.getElementById('dropTitle');
+    const dropSub = document.getElementById('dropSub');
+    const pills = document.querySelectorAll('.draggable-pill');
 
-    let stressTimer = null;
-    let isInfiniteActive = false;
+    pills.forEach(pill => {
+      pill.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', pill.textContent);
+        document.body.className = 'cursor-text-drag';
+      });
 
-    function runCpuStress(seconds) {
-      if (isInfiniteActive) toggleInfiniteBusy();
-      clearInterval(stressTimer);
-
-      document.body.className = 'cursor-busy';
-      heroBox.classList.add('active-stress');
-      heroTitle.textContent = `💥 SYSTEM BUSY (${seconds}s Stress Test)`;
-      heroDesc.textContent = 'Executing computational matrix math. Notice your custom MONO Busy cursor!';
-      progressContainer.style.display = 'block';
-      progressBar.style.width = '0%';
-
-      let progress = 0;
-      const intervalMs = 40;
-      const totalSteps = (seconds * 1000) / intervalMs;
-      let stepCount = 0;
-
-      stressTimer = setInterval(() => {
-        stepCount++;
-        // Heavy JS math simulation
-        let acc = 0;
-        for (let i = 0; i < 200000; i++) {
-          acc += Math.sin(i) * Math.cos(i);
-        }
-        
-        progress = Math.min(100, (stepCount / totalSteps) * 100);
-        progressBar.style.width = progress + '%';
-        heroDesc.textContent = `Calculated ${(stepCount * 200000).toLocaleString()} operations | Busy Cursor Active`;
-
-        if (progress >= 100) {
-          clearInterval(stressTimer);
-          document.body.className = 'cursor-normal';
-          heroBox.classList.remove('active-stress');
-          heroTitle.textContent = '✅ Stress Workload Complete!';
-          heroDesc.textContent = 'System Idle — Cursor returned to Normal Select.';
-          setTimeout(() => { progressContainer.style.display = 'none'; }, 1500);
-        }
-      }, intervalMs);
-    }
-
-    function toggleInfiniteBusy() {
-      clearInterval(stressTimer);
-      isInfiniteActive = !isInfiniteActive;
-
-      if (isInfiniteActive) {
-        document.body.className = 'cursor-busy';
-        heroBox.classList.add('active-stress');
-        infiniteBtn.classList.add('active-toggle');
-        infiniteBtn.textContent = '🔓 Release Infinite Busy Mode';
-        heroTitle.textContent = '🔒 INFINITE BUSY MODE ACTIVE';
-        heroDesc.textContent = 'Cursor is held in Busy state indefinitely. Move your mouse freely anywhere across the page!';
-        progressContainer.style.display = 'block';
-        progressBar.style.width = '100%';
-      } else {
+      pill.addEventListener('dragend', () => {
         document.body.className = 'cursor-normal';
-        heroBox.classList.remove('active-stress');
-        infiniteBtn.classList.remove('active-toggle');
-        infiniteBtn.textContent = '🔒 Toggle Continuous Infinite Busy Mode';
-        heroTitle.textContent = '⚡ Unlocked! System Restored';
-        heroDesc.textContent = 'Cursor restored to normal state.';
-        progressContainer.style.display = 'none';
-      }
-    }
+      });
+    });
 
-    function runFlappingStress() {
-      if (isInfiniteActive) toggleInfiniteBusy();
-      clearInterval(stressTimer);
+    dropTarget.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropTarget.classList.add('drag-over');
+      document.body.className = 'cursor-drag-copy';
+      dropTitle.textContent = '➕ Release to Drop Text';
+    });
 
-      heroBox.classList.add('active-stress');
-      heroTitle.textContent = '🌪️ 60 FPS RAPID CURSOR FLAPPING';
-      heroDesc.textContent = 'Rapidly cycling between Normal -> Busy -> Working -> Text -> Move to stress-test render latency...';
-      
-      const cursors = ['cursor-normal', 'cursor-busy', 'cursor-appstarting', 'cursor-text', 'cursor-move'];
-      let count = 0;
-      const maxCount = 60;
+    dropTarget.addEventListener('dragleave', () => {
+      dropTarget.classList.remove('drag-over');
+      document.body.className = 'cursor-text-drag';
+      dropTitle.textContent = '📥 Drop Target Box';
+    });
 
-      stressTimer = setInterval(() => {
-        document.body.className = cursors[count % cursors.length];
-        count++;
-        if (count >= maxCount) {
-          clearInterval(stressTimer);
-          document.body.className = 'cursor-normal';
-          heroBox.classList.remove('active-stress');
-          heroTitle.textContent = '✅ Flapping Stress Test Complete!';
-          heroDesc.textContent = 'Zero frame drops or visual artifacts detected.';
-        }
-      }, 50);
-    }
+    dropTarget.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropTarget.classList.remove('drag-over');
+      document.body.className = 'cursor-normal';
+      const text = e.dataTransfer.getData('text/plain');
+      dropTitle.textContent = `✅ Received: "${text}"`;
+      dropSub.textContent = 'Text dropped successfully!';
+    });
   </script>
 </body>
 </html>

@@ -32,6 +32,10 @@ $cursorMap = @{
     "Hand"          = Join-Path $distDir "mono_link_select.cur"
     "Pin"           = Join-Path $distDir "mono_location_select.cur"
     "Person"        = Join-Path $distDir "mono_person_select.cur"
+    "Draft"         = Join-Path $distDir "mono_text_drag.cur"
+    "Copy"          = Join-Path $distDir "mono_drag_copy.cur"
+    "NoDrop"        = Join-Path $distDir "mono_dnd_no_drop.cur"
+    "VerticalText"  = Join-Path $distDir "mono_vertical_text.cur"
 }
 
 Write-Host "Applying MONO Cursor Pack..." -ForegroundColor Magenta

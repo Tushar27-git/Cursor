@@ -38,6 +38,13 @@ def build_mono_pack():
         
         pack_cur(png_size_map, hotspot_pct, cur_path)
         cur_files[icon_id] = cur_path
+
+    # Generate compatibility aliases for standard Windows OLE / drag-drop tools
+    import shutil
+    shutil.copyfile("dist/mono_text_drag.cur", "dist/draft.cur")
+    shutil.copyfile("dist/mono_drag_copy.cur", "dist/copy.cur")
+    shutil.copyfile("dist/mono_dnd_no_drop.cur", "dist/dnd-no-drop.cur")
+    shutil.copyfile("dist/mono_vertical_text.cur", "dist/vertical-text.cur")
         
     # 4. Verify binary structures
     print("\n[Step 4/5] Validating compiled .CUR files...")
@@ -65,12 +72,13 @@ def generate_gallery_previews():
     ordered_icons = [
         "normal_select", "help_select", "working_in_background", "busy", "precision_select", "text_select",
         "handwriting", "unavailable", "vertical_resize", "horizontal_resize", "diagonal_resize_1", "diagonal_resize_2",
-        "move", "alternate_select", "link_select", "location_select", "person_select"
+        "move", "alternate_select", "link_select", "location_select", "person_select",
+        "text_drag", "drag_copy", "dnd_no_drop", "vertical_text"
     ]
     
-    # 6 columns x 3 rows grid
+    # 6 columns x 4 rows grid
     COLS = 6
-    ROWS = 3
+    ROWS = 4
     CELL_W = 200
     CELL_H = 190
     PADDING = 40

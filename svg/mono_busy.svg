@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      .contrast-stroke {
+        stroke: #000000;
+        stroke-opacity: 0.65;
+        stroke-width: 7.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .outline-stroke {
+        stroke: #F5F1FF;
+        stroke-width: 4.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .contrast-stroke-lean {
+        stroke: #000000;
+        stroke-opacity: 0.65;
+        stroke-width: 6.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .outline-stroke-lean {
+        stroke: #F5F1FF;
+        stroke-width: 3.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .accent-fill {
+        fill: #B18CFF;
+      }
+      .accent-stroke {
+        stroke: #B18CFF;
+        stroke-width: 4.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .contrast-fill {
+        fill: #000000;
+        fill-opacity: 0.65;
+      }
+    </style>
+  </defs>
+
+  <!-- Tri-Arc Spinner connecting 3 purple dots -->
+  <!-- Dark Contrast Arcs -->
+  <path class="contrast-stroke" d="M 32 17 A 17 17 0 0 1 45 40" />
+  <path class="contrast-stroke" d="M 45 40 A 17 17 0 0 1 19 40" />
+  <path class="contrast-stroke" d="M 19 40 A 17 17 0 0 1 32 17" />
+
+  <!-- Pale Lilac Outline Arcs -->
+  <path class="outline-stroke" d="M 32 17 A 17 17 0 0 1 45 40" />
+  <path class="outline-stroke" d="M 45 40 A 17 17 0 0 1 19 40" />
+  <path class="outline-stroke" d="M 19 40 A 17 17 0 0 1 32 17" />
+
+  <!-- 3 Purple Accent Dots -->
+  <circle class="contrast-fill" cx="32" cy="17" r="6" />
+  <circle class="accent-fill" cx="32" cy="17" r="4.6" />
+
+  <circle class="contrast-fill" cx="45" cy="40" r="6" />
+  <circle class="accent-fill" cx="45" cy="40" r="4.6" />
+
+  <circle class="contrast-fill" cx="19" cy="40" r="6" />
+  <circle class="accent-fill" cx="19" cy="40" r="4.6" />
+
+</svg>

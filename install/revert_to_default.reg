@@ -1,0 +1,23 @@
+Windows Registry Editor Version 5.00
+
+; Revert Windows Cursors to Windows Default
+[HKEY_CURRENT_USER\Control Panel\Cursors]
+"(Default)"="Windows Default"
+"Scheme Source"=dword:00000000
+"Arrow"=""
+"Help"=""
+"AppStarting"=""
+"Wait"=""
+"Crosshair"=""
+"IBeam"=""
+"NWPen"=""
+"No"=""
+"SizeNS"=""
+"SizeWE"=""
+"SizeNWSE"=""
+"SizeNESW"=""
+"SizeAll"=""
+"UpArrow"=""
+"Hand"=""
+"Pin"=""
+"Person"=""

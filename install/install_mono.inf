@@ -1,0 +1,41 @@
+; ========================================================
+; MONO - Windows 11 Custom Lilac-White Cursor Pack
+; Right-click this file and select 'Install'
+; ========================================================
+[Version]
+signature="$CHICAGO$"
+Provider="Mono Cursor Team"
+
+[DefaultInstall]
+CopyFiles = Scheme.CurFiles
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.CurFiles = 10, "%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors", "Scheme Source", 0x00010001, 1
+HKCU,"Control Panel\Cursors\Schemes", "Mono", 0x00020000, "%10%\%CUR_DIR%\mono_normal_select.cur,%10%\%CUR_DIR%\mono_help_select.cur,%10%\%CUR_DIR%\mono_working_in_background.cur,%10%\%CUR_DIR%\mono_busy.cur,%10%\%CUR_DIR%\mono_precision_select.cur,%10%\%CUR_DIR%\mono_text_select.cur,%10%\%CUR_DIR%\mono_handwriting.cur,%10%\%CUR_DIR%\mono_unavailable.cur,%10%\%CUR_DIR%\mono_vertical_resize.cur,%10%\%CUR_DIR%\mono_horizontal_resize.cur,%10%\%CUR_DIR%\mono_diagonal_resize_1.cur,%10%\%CUR_DIR%\mono_diagonal_resize_2.cur,%10%\%CUR_DIR%\mono_move.cur,%10%\%CUR_DIR%\mono_alternate_select.cur,%10%\%CUR_DIR%\mono_link_select.cur,%10%\%CUR_DIR%\mono_location_select.cur,%10%\%CUR_DIR%\mono_person_select.cur"
+
+[Scheme.CurFiles]
+mono_normal_select.cur
+mono_help_select.cur
+mono_working_in_background.cur
+mono_busy.cur
+mono_precision_select.cur
+mono_text_select.cur
+mono_handwriting.cur
+mono_unavailable.cur
+mono_vertical_resize.cur
+mono_horizontal_resize.cur
+mono_diagonal_resize_1.cur
+mono_diagonal_resize_2.cur
+mono_move.cur
+mono_alternate_select.cur
+mono_link_select.cur
+mono_location_select.cur
+mono_person_select.cur
+
+[Strings]
+CUR_DIR = "Cursors\Mono"
+SCHEME_NAME = "Mono"

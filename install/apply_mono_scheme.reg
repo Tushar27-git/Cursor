@@ -1,0 +1,26 @@
+Windows Registry Editor Version 5.00
+
+; MONO Cursor Pack Registry Scheme Definition
+[HKEY_CURRENT_USER\Control Panel\Cursors]
+"(Default)"="Mono"
+"Scheme Source"=dword:00000001
+"Arrow"="D:\\MonoCurseher\\dist\\mono_normal_select.cur"
+"Help"="D:\\MonoCurseher\\dist\\mono_help_select.cur"
+"AppStarting"="D:\\MonoCurseher\\dist\\mono_working_in_background.cur"
+"Wait"="D:\\MonoCurseher\\dist\\mono_busy.cur"
+"Crosshair"="D:\\MonoCurseher\\dist\\mono_precision_select.cur"
+"IBeam"="D:\\MonoCurseher\\dist\\mono_text_select.cur"
+"NWPen"="D:\\MonoCurseher\\dist\\mono_handwriting.cur"
+"No"="D:\\MonoCurseher\\dist\\mono_unavailable.cur"
+"SizeNS"="D:\\MonoCurseher\\dist\\mono_vertical_resize.cur"
+"SizeWE"="D:\\MonoCurseher\\dist\\mono_horizontal_resize.cur"
+"SizeNWSE"="D:\\MonoCurseher\\dist\\mono_diagonal_resize_1.cur"
+"SizeNESW"="D:\\MonoCurseher\\dist\\mono_diagonal_resize_2.cur"
+"SizeAll"="D:\\MonoCurseher\\dist\\mono_move.cur"
+"UpArrow"="D:\\MonoCurseher\\dist\\mono_alternate_select.cur"
+"Hand"="D:\\MonoCurseher\\dist\\mono_link_select.cur"
+"Pin"="D:\\MonoCurseher\\dist\\mono_location_select.cur"
+"Person"="D:\\MonoCurseher\\dist\\mono_person_select.cur"
+
+[HKEY_CURRENT_USER\Control Panel\Cursors\Schemes]
+"Mono"="D:\\MonoCurseher\\dist\\mono_normal_select.cur,D:\\MonoCurseher\\dist\\mono_help_select.cur,D:\\MonoCurseher\\dist\\mono_working_in_background.cur,D:\\MonoCurseher\\dist\\mono_busy.cur,D:\\MonoCurseher\\dist\\mono_precision_select.cur,D:\\MonoCurseher\\dist\\mono_text_select.cur,D:\\MonoCurseher\\dist\\mono_handwriting.cur,D:\\MonoCurseher\\dist\\mono_unavailable.cur,D:\\MonoCurseher\\dist\\mono_vertical_resize.cur,D:\\MonoCurseher\\dist\\mono_horizontal_resize.cur,D:\\MonoCurseher\\dist\\mono_diagonal_resize_1.cur,D:\\MonoCurseher\\dist\\mono_diagonal_resize_2.cur,D:\\MonoCurseher\\dist\\mono_move.cur,D:\\MonoCurseher\\dist\\mono_alternate_select.cur,D:\\MonoCurseher\\dist\\mono_link_select.cur,D:\\MonoCurseher\\dist\\mono_location_select.cur,D:\\MonoCurseher\\dist\\mono_person_select.cur"

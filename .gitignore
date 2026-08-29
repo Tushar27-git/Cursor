@@ -1,2 +1,5 @@
-node_modules/
-*.log
+__pycache__/
+*.py[cod]
+*$py.class
+scratch/
+.system_generated/

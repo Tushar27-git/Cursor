@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      .contrast-stroke {
+        stroke: #000000;
+        stroke-opacity: 0.65;
+        stroke-width: 7.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .outline-stroke {
+        stroke: #F5F1FF;
+        stroke-width: 4.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .contrast-stroke-lean {
+        stroke: #000000;
+        stroke-opacity: 0.65;
+        stroke-width: 6.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .outline-stroke-lean {
+        stroke: #F5F1FF;
+        stroke-width: 3.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .accent-fill {
+        fill: #B18CFF;
+      }
+      .accent-stroke {
+        stroke: #B18CFF;
+        stroke-width: 4.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .contrast-fill {
+        fill: #000000;
+        fill-opacity: 0.65;
+      }
+    </style>
+  </defs>
+
+  <!-- Hollow Person / User Silhouette (Head + Torso) -->
+  <!-- Head Contrast -->
+  <circle class="contrast-stroke" cx="32" cy="18" r="8" />
+  <!-- Torso Base Contrast -->
+  <path class="contrast-stroke" d="M 15 50 C 15 40, 22 36, 32 36 C 42 36, 49 40, 49 50 Z" />
+
+  <!-- Head Outline -->
+  <circle class="outline-stroke" cx="32" cy="18" r="8" />
+  <!-- Torso Base Outline -->
+  <path class="outline-stroke" d="M 15 50 C 15 40, 22 36, 32 36 C 42 36, 49 40, 49 50 Z" />
+
+  <!-- Purple Accent at Collar -->
+  <rect class="contrast-fill" x="29" y="34.5" width="6" height="3" rx="1.5" />
+  <rect class="accent-fill" x="29.5" y="35" width="5" height="2" rx="1" />
+
+</svg>

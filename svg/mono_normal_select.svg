@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      .contrast-stroke {
+        stroke: #000000;
+        stroke-opacity: 0.65;
+        stroke-width: 7.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .outline-stroke {
+        stroke: #F5F1FF;
+        stroke-width: 4.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .contrast-stroke-lean {
+        stroke: #000000;
+        stroke-opacity: 0.65;
+        stroke-width: 6.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .outline-stroke-lean {
+        stroke: #F5F1FF;
+        stroke-width: 3.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .accent-fill {
+        fill: #B18CFF;
+      }
+      .accent-stroke {
+        stroke: #B18CFF;
+        stroke-width: 4.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .contrast-fill {
+        fill: #000000;
+        fill-opacity: 0.65;
+      }
+    </style>
+  </defs>
+
+  <!-- Outer Dark Contrast Stroke -->
+  <path class="contrast-stroke" d="M 14 9
+           C 25 18, 41 28, 47.5 45.5
+           C 48.5 48.5, 45 51, 41.5 48
+           C 33.5 40.5, 27 34, 23 35.5
+           C 18.5 37, 16.5 45, 15.5 48.5
+           C 14.5 51.5, 13.5 50.5, 13.5 46.5
+           Z" />
+
+  <!-- Main Hollow Pale-Lilac Outline -->
+  <path class="outline-stroke" d="M 14 9
+           C 25 18, 41 28, 47.5 45.5
+           C 48.5 48.5, 45 51, 41.5 48
+           C 33.5 40.5, 27 34, 23 35.5
+           C 18.5 37, 16.5 45, 15.5 48.5
+           C 14.5 51.5, 13.5 50.5, 13.5 46.5
+           Z" />
+
+  <!-- Floating Purple Accent Pill in Heel -->
+  <rect class="accent-fill" x="16.2" y="36.5" width="3.6" height="8.5" rx="1.8" ry="1.8" />
+
+</svg>

@@ -337,20 +337,20 @@ ICONS["link_select"] = {
     "key": "Hand",
     "filename": "mono_link_select",
     "name": "Link Select",
-    "hotspot": (19 / 64, 19 / 64),
+    "hotspot": (18 / 64, 18 / 64),
     "svg": """
-  <!-- Two Interlocking Rounded Chain Links with Solid Black Fill -->
+  <!-- Two Interlocking Rounded Chain Links (+7.5% Scale Enhancement) -->
   <!-- Upper Left Link -->
-  <rect class="contrast-stroke" x="11.5" y="11.5" width="26" height="14.5" rx="7.25" ry="7.25" transform="rotate(-45 24.5 18.75)" />
+  <rect class="contrast-stroke" x="9" y="10.5" width="29" height="16" rx="8" ry="8" transform="rotate(-45 23.5 18.5)" />
   <!-- Lower Right Link -->
-  <rect class="contrast-stroke" x="26.5" y="26.5" width="26" height="14.5" rx="7.25" ry="7.25" transform="rotate(-45 39.5 33.75)" />
+  <rect class="contrast-stroke" x="26" y="27.5" width="29" height="16" rx="8" ry="8" transform="rotate(-45 40.5 35.5)" />
 
-  <rect class="outline-stroke" x="11.5" y="11.5" width="26" height="14.5" rx="7.25" ry="7.25" transform="rotate(-45 24.5 18.75)" />
-  <rect class="outline-stroke" x="26.5" y="26.5" width="26" height="14.5" rx="7.25" ry="7.25" transform="rotate(-45 39.5 33.75)" />
+  <rect class="outline-stroke" x="9" y="10.5" width="29" height="16" rx="8" ry="8" transform="rotate(-45 23.5 18.5)" />
+  <rect class="outline-stroke" x="26" y="27.5" width="29" height="16" rx="8" ry="8" transform="rotate(-45 40.5 35.5)" />
 
   <!-- Purple Connection Accent Pill at Junction -->
-  <circle cx="32" cy="32" r="5.8" fill="#000000" />
-  <circle class="accent-fill" cx="32" cy="32" r="4.2" />
+  <circle cx="32" cy="32" r="6.2" fill="#000000" />
+  <circle class="accent-fill" cx="32" cy="32" r="4.6" />
 """
 }
 

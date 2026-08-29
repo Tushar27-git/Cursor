@@ -66,20 +66,16 @@
     </style>
   </defs>
 
-  <!-- Tri-Arc Spinner connecting 3 purple dots with solid black backdrop -->
   <circle cx="32" cy="32" r="23" fill="#000000" />
   
-  <!-- Dark Contrast Arcs -->
   <path class="contrast-stroke-hollow" d="M 32 14.5 A 19.8 19.8 0 0 1 47.8 41.8" />
   <path class="contrast-stroke-hollow" d="M 47.8 41.8 A 19.8 19.8 0 0 1 16.2 41.8" />
   <path class="contrast-stroke-hollow" d="M 16.2 41.8 A 19.8 19.8 0 0 1 32 14.5" />
 
-  <!-- Pale Lilac Outline Arcs -->
   <path class="outline-stroke-hollow" d="M 32 14.5 A 19.8 19.8 0 0 1 47.8 41.8" />
   <path class="outline-stroke-hollow" d="M 47.8 41.8 A 19.8 19.8 0 0 1 16.2 41.8" />
   <path class="outline-stroke-hollow" d="M 16.2 41.8 A 19.8 19.8 0 0 1 32 14.5" />
 
-  <!-- 3 Purple Accent Dots -->
   <circle cx="32" cy="14.5" r="7.2" fill="#000000" />
   <circle class="accent-fill" cx="32" cy="14.5" r="5.4" />
 

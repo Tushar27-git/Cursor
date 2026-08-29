@@ -66,7 +66,6 @@
     </style>
   </defs>
 
-  <!-- Base Pointer Contrast + Solid Black -->
   <path class="contrast-stroke" d="M 10 5
            C 24 16, 44 28, 52 50
            C 53.2 53.8, 48.8 57, 45 53.5
@@ -74,8 +73,6 @@
            C 17 40.5, 14 50.5, 13 54.8
            C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
-
-  <!-- Base Pointer Outline -->
   <path class="outline-stroke" d="M 10 5
            C 24 16, 44 28, 52 50
            C 53.2 53.8, 48.8 57, 45 53.5
@@ -83,16 +80,11 @@
            C 17 40.5, 14 50.5, 13 54.8
            C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
-
-  <!-- Purple Pill in Heel -->
   <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
 
-  <!-- Help Circle Badge at Lower Right (Solid Mask + Lilac Circle) -->
   <circle cx="52" cy="50" r="10.5" fill="#000000" />
   <circle class="contrast-stroke-lean" cx="52" cy="50" r="9.2" />
   <circle class="accent-fill" cx="52" cy="50" r="8.8" />
-  
-  <!-- Question Mark Inside Badge -->
   <path d="M 49.5 46.5 C 49.5 44.4 50.8 43.4 52.2 43.4 C 53.6 43.4 54.7 44.4 54.7 45.7 C 54.7 47 53.6 47.8 52.6 48.6 L 52.6 50.1" 
         stroke="#F5F1FF" stroke-width="2.1" stroke-linecap="round" fill="none" />
   <circle cx="52.6" cy="53.5" r="1.2" fill="#F5F1FF" />

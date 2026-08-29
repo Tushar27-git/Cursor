@@ -66,16 +66,12 @@
     </style>
   </defs>
 
-  <!-- Solid Black Person / User Silhouette (Head + Torso) -->
-  <!-- Head -->
   <circle class="contrast-stroke" cx="32" cy="15.5" r="9.5" />
   <circle class="outline-stroke" cx="32" cy="15.5" r="9.5" />
 
-  <!-- Torso Base -->
   <path class="contrast-stroke" d="M 11 54 C 11 41.5, 19.5 37.5, 32 37.5 C 44.5 37.5, 53 41.5, 53 54 Z" />
   <path class="outline-stroke" d="M 11 54 C 11 41.5, 19.5 37.5, 32 37.5 C 44.5 37.5, 53 41.5, 53 54 Z" />
 
-  <!-- Purple Accent at Collar -->
   <rect class="accent-fill" x="28.8" y="36.5" width="6.4" height="2.6" rx="1.3" />
 
 </svg>

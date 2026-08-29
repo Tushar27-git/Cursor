@@ -66,7 +66,6 @@
     </style>
   </defs>
 
-  <!-- Solid Black NE to SW Diagonal Arrow (Scaled for Optical Balance) -->
   <path class="contrast-stroke" d="M 39 13 L 51 13 L 51 25 L 46 20 L 20 46 L 25 51 L 13 51 L 13 39 L 18 44 L 44 18 Z" />
   <path class="outline-stroke" d="M 39 13 L 51 13 L 51 25 L 46 20 L 20 46 L 25 51 L 13 51 L 13 39 L 18 44 L 44 18 Z" />
 

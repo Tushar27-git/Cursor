@@ -66,11 +66,9 @@
     </style>
   </defs>
 
-  <!-- Solid Black Circle with Pale Lilac Ring & Purple Slash -->
   <circle class="contrast-stroke" cx="32" cy="32" r="22" />
   <circle class="outline-stroke" cx="32" cy="32" r="22" />
 
-  <!-- Purple Diagonal Accent Slash -->
   <line class="contrast-stroke-hollow" x1="16.5" y1="16.5" x2="47.5" y2="47.5" />
   <line class="accent-stroke" x1="16.5" y1="16.5" x2="47.5" y2="47.5" />
 

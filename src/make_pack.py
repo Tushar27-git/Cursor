@@ -42,7 +42,12 @@ def build_mono_pack():
     # Generate compatibility aliases for standard Windows OLE / drag-drop tools
     import shutil
     shutil.copyfile("dist/mono_text_drag.cur", "dist/draft.cur")
+    shutil.copyfile("dist/mono_text_drag.cur", "dist/dnd-move.cur")
     shutil.copyfile("dist/mono_drag_copy.cur", "dist/copy.cur")
+    shutil.copyfile("dist/mono_drag_copy.cur", "dist/dnd-copy.cur")
+    shutil.copyfile("dist/mono_drag_link.cur", "dist/alias.cur")
+    shutil.copyfile("dist/mono_drag_link.cur", "dist/dnd-link.cur")
+    shutil.copyfile("dist/mono_dnd_no_drop.cur", "dist/dnd-none.cur")
     shutil.copyfile("dist/mono_dnd_no_drop.cur", "dist/dnd-no-drop.cur")
     shutil.copyfile("dist/mono_vertical_text.cur", "dist/vertical-text.cur")
         
@@ -73,7 +78,7 @@ def generate_gallery_previews():
         "normal_select", "help_select", "working_in_background", "busy", "precision_select", "text_select",
         "handwriting", "unavailable", "vertical_resize", "horizontal_resize", "diagonal_resize_1", "diagonal_resize_2",
         "move", "alternate_select", "link_select", "location_select", "person_select",
-        "text_drag", "drag_copy", "dnd_no_drop", "vertical_text"
+        "text_drag", "drag_copy", "drag_link", "dnd_no_drop", "vertical_text"
     ]
     
     # 6 columns x 4 rows grid

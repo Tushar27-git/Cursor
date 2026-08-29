@@ -1,5 +1,5 @@
-# MONO Cursor Pack - One-Click Live Installer for Windows 11
-# Applies all 17 custom Mono cursors immediately without restart.
+# One-Click Live Installer for MONO Cursor Pack
+# Applies all standard + Drag-and-Drop / OLE cursors and instantly refreshes Windows desktop.
 
 $ErrorActionPreference = "Stop"
 
@@ -7,7 +7,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $distDir = Join-Path $scriptDir "dist"
 
 if (-not (Test-Path $distDir)) {
-    Write-Host "Error: Could not find 'dist' folder at $distDir" -ForegroundColor Red
+    Write-Error "dist directory not found at $distDir. Please build the pack first."
     exit 1
 }
 
@@ -34,58 +34,80 @@ $cursorMap = @{
     "Person"        = Join-Path $distDir "mono_person_select.cur"
     "Draft"         = Join-Path $distDir "mono_text_drag.cur"
     "Copy"          = Join-Path $distDir "mono_drag_copy.cur"
+    "Alias"         = Join-Path $distDir "mono_drag_link.cur"
     "NoDrop"        = Join-Path $distDir "mono_dnd_no_drop.cur"
     "VerticalText"  = Join-Path $distDir "mono_vertical_text.cur"
+    "dnd-move"      = Join-Path $distDir "mono_text_drag.cur"
+    "dnd-copy"      = Join-Path $distDir "mono_drag_copy.cur"
+    "dnd-link"      = Join-Path $distDir "mono_drag_link.cur"
+    "dnd-none"      = Join-Path $distDir "mono_dnd_no_drop.cur"
+    "dnd-no-drop"   = Join-Path $distDir "mono_dnd_no_drop.cur"
 }
 
-Write-Host "Applying MONO Cursor Pack..." -ForegroundColor Magenta
+Write-Host "Applying MONO Cursor Pack with Drag-and-Drop support..." -ForegroundColor Magenta
 
-# 1. Update Registry Keys
+# Write to HKCU\Control Panel\Cursors
 $regPath = "HKCU:\Control Panel\Cursors"
-Set-ItemProperty -Path $regPath -Name "(Default)" -Value "Mono"
-Set-ItemProperty -Path $regPath -Name "Scheme Source" -Value 1 -Type DWord
+if (-not (Test-Path $regPath)) {
+    New-Item -Path $regPath -Force | Out-Null
+}
+
+Set-ItemProperty -Path $regPath -Name "(default)" -Value "Mono" -Force
+Set-ItemProperty -Path $regPath -Name "Scheme Source" -Value 1 -Type DWord -Force
 
 foreach ($key in $cursorMap.Keys) {
     $curPath = $cursorMap[$key]
-    Set-ItemProperty -Path $regPath -Name $key -Value $curPath
+    if (Test-Path $curPath) {
+        Set-ItemProperty -Path $regPath -Name $key -Value $curPath -Force
+    }
 }
 
-# 2. Save Scheme Definition in Registry
-$schemesRegPath = "HKCU:\Control Panel\Cursors\Schemes"
-if (-not (Test-Path $schemesRegPath)) {
-    New-Item -Path $schemesRegPath -Force | Out-Null
+# Also register under HKCU\Control Panel\Cursors\Schemes
+$schemesPath = "HKCU:\Control Panel\Cursors\Schemes"
+if (-not (Test-Path $schemesPath)) {
+    New-Item -Path $schemesPath -Force | Out-Null
 }
 
-$orderedKeys = @(
-    "Arrow", "Help", "AppStarting", "Wait", "Crosshair", "IBeam", "NWPen", "No",
-    "SizeNS", "SizeWE", "SizeNWSE", "SizeNESW", "SizeAll", "UpArrow", "Hand", "Pin", "Person"
+$schemeValues = @(
+    $cursorMap["Arrow"],
+    $cursorMap["Help"],
+    $cursorMap["AppStarting"],
+    $cursorMap["Wait"],
+    $cursorMap["Crosshair"],
+    $cursorMap["IBeam"],
+    $cursorMap["NWPen"],
+    $cursorMap["No"],
+    $cursorMap["SizeNS"],
+    $cursorMap["SizeWE"],
+    $cursorMap["SizeNWSE"],
+    $cursorMap["SizeNESW"],
+    $cursorMap["SizeAll"],
+    $cursorMap["UpArrow"],
+    $cursorMap["Hand"],
+    $cursorMap["Pin"],
+    $cursorMap["Person"]
 )
-$schemeValue = ($orderedKeys | ForEach-Object { $cursorMap[$_] }) -join ","
-Set-ItemProperty -Path $schemesRegPath -Name "Mono" -Value $schemeValue
+$schemeStr = $schemeValues -join ","
+Set-ItemProperty -Path $schemesPath -Name "Mono" -Value $schemeStr -Force
 
-# 3. Broadcast Win32 SystemParametersInfo (SPI_SETCURSORS) to refresh desktop cursor instantly
-$cSharpCode = @"
+# Instantly broadcast SPI_SETCURSORS (0x0057) to all Windows processes
+if (-not ([System.Management.Automation.PSTypeName]'NativeCursorBroadcaster').Type) {
+    Add-Type -TypeDefinition @"
 using System;
 using System.Runtime.InteropServices;
 
-public class Win32Cursor {
+public class NativeCursorBroadcaster {
     [DllImport("user32.dll", EntryPoint = "SystemParametersInfoW", SetLastError = true)]
     public static extern bool SystemParametersInfo(uint uiAction, uint uiParam, IntPtr pvParam, uint fWinIni);
-
-    public static bool RefreshCursors() {
-        const uint SPI_SETCURSORS = 0x0057;
-        const uint SPIF_UPDATEINIFILE = 0x01;
-        const uint SPIF_SENDCHANGE = 0x02;
-        return SystemParametersInfo(SPI_SETCURSORS, 0, IntPtr.Zero, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
-    }
 }
 "@
+}
 
-try {
-    Add-Type -TypeDefinition $cSharpCode -ErrorAction SilentlyContinue | Out-Null
-} catch {}
+$SPI_SETCURSORS = 0x0057
+$SPIF_UPDATEINIFILE = 0x01
+$SPIF_SENDCHANGE = 0x02
 
-[Win32Cursor]::RefreshCursors() | Out-Null
+$result = [NativeCursorBroadcaster]::SystemParametersInfo($SPI_SETCURSORS, 0, [IntPtr]::Zero, ($SPIF_UPDATEINIFILE -bor $SPIF_SENDCHANGE))
 
 Write-Host "`nSUCCESS! MONO cursor pack is now live on your desktop!" -ForegroundColor Green
-Write-Host "If you ever want to revert back, run 'restore_default.bat'." -ForegroundColor Gray
+Write-Host "If you ever want to revert back, run 'restore_default.bat'." -ForegroundColor Yellow

@@ -66,7 +66,6 @@
     </style>
   </defs>
 
-  <!-- Diagonal Pencil Outline with Solid Black Fill pointing to (9, 55) -->
   <path class="contrast-stroke" d="M 50 13 
            C 54 9, 58 13, 55 17 
            L 24 48 
@@ -83,11 +82,9 @@
            L 47 9 
            C 48 8, 49 8, 50 9 Z" />
 
-  <!-- Pencil Collar Line -->
   <line class="contrast-stroke-lean" x1="19.5" y1="43.5" x2="26.5" y2="50.5" />
   <line class="outline-stroke-lean" x1="19.5" y1="43.5" x2="26.5" y2="50.5" />
 
-  <!-- Purple Filled Tip Lead -->
   <path class="accent-fill" d="M 9 55 L 16.5 44 L 23.5 51 Z" />
 
 </svg>

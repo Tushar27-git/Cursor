@@ -1,74 +1,104 @@
 # MONO — Windows 11 Custom Lilac-White Cursor Pack
 
 > **A minimal, futuristic hollow cursor pack designed for Windows 11.**  
-> Crafted with a warm near-white lilac outline (`#F5F1FF`), vibrant interaction accent dots (`#B18CFF`), and a protective dark outer contour (`rgba(0,0,0,0.65)`) ensuring readability on both dark themes and white backgrounds.
+> Crafted with a warm near-white lilac outline (`#F5F1FF`), solid black interior core (`#000000`), vibrant interaction accent dots (`#B18CFF`), and a protective dark outer contrast halo (`rgba(0,0,0,0.75)`) ensuring readability on both dark themes and pure white backgrounds.
 
 ---
 
-## 🎨 Palette & Design Tokens
+## 📸 Visual Showcase
+
+### Dark Theme Preview
+![MONO Dark Theme Showcase](preview/mono_showcase_dark.png)
+
+### Light Theme Preview
+![MONO Light Theme Showcase](preview/mono_showcase_light.png)
+
+---
+
+## 🎨 Design System & Palette
 
 | Token | Hex / Value | Description |
 |---|---|---|
 | **Outline Stroke** | `#F5F1FF` | 90% white, 10% lilac (HSL 256°, 45%, 96%). Warm, crisp, and non-clinical. |
-| **Accent Fill** | `#B18CFF` | Saturated interaction accent for interactive focal points. |
-| **Contrast Halo** | `rgba(0,0,0,0.65)` | Outer protective stroke ensuring the cursor never disappears on white apps. |
-| **Stroke Width** | `4.8px` (~7.5%) | Bold, tactile silhouette with rounded caps and joins (`round`). |
+| **Accent Fill** | `#B18CFF` | Saturated interaction accent for interactive focal points, spinners, and badges. |
+| **Interior Core** | `#000000` | Solid opaque black interior body preventing pass-through and ensuring visibility across all UI colors. |
+| **Contrast Halo** | `rgba(0,0,0,0.75)` | Dark outer protective stroke preventing the cursor from vanishing on white websites and documents. |
+| **Stroke Width** | `5.2px` | Bold, tactile silhouette with rounded caps and joins (`round`). |
 
 ---
 
 ## 📦 What's Included
 
-### 1. Compiled Windows Cursors (`dist/`)
-Contains all **17 `.cur` files**, each embedded with 7 resolutions (**16, 24, 32, 48, 64, 96, 128 px**) and custom pixel-accurate hotspots:
-1. `mono_normal_select.cur` (`Arrow`)
-2. `mono_help_select.cur` (`Help`)
-3. `mono_working_in_background.cur` (`AppStarting`)
-4. `mono_busy.cur` (`Wait`)
-5. `mono_precision_select.cur` (`Crosshair`)
-6. `mono_text_select.cur` (`IBeam`)
-7. `mono_handwriting.cur` (`NWPen`)
-8. `mono_unavailable.cur` (`No`)
-9. `mono_vertical_resize.cur` (`SizeNS`)
-10. `mono_horizontal_resize.cur` (`SizeWE`)
-11. `mono_diagonal_resize_1.cur` (`SizeNWSE`)
-12. `mono_diagonal_resize_2.cur` (`SizeNESW`)
-13. `mono_move.cur` (`SizeAll`)
-14. `mono_alternate_select.cur` (`UpArrow`)
-15. `mono_link_select.cur` (`Hand`)
-16. `mono_location_select.cur` (`Pin`)
-17. `mono_person_select.cur` (`Person`)
+### 1. Windows Cursors (`dist/`)
+Contains all **compiled multi-resolution Windows cursors** embedded with 7 resolutions (**16×16, 24×24, 32×32, 48×48, 64×64, 96×96, 128×128 px**) and pixel-exact hotspots:
 
-### 2. Master SVGs & PNGs
-- `svg/`: 17 master vector source files.
-- `png/`: Transparent PNGs exported at 16x16, 24x24, 32x32, 48x48, 64x64, 96x96, and 128x128.
-
-### 3. Installers (`install/`)
-- **`install_mono.inf`**: Right-click → **Install** to register the scheme directly into Windows Mouse Properties (`%SystemRoot%\Cursors\Mono`).
-- **`apply_mono_live.py`**: Python script that sets the registry and broadcasts `SystemParametersInfo(SPI_SETCURSORS)` for **instant live desktop activation**.
-- **`apply_mono_scheme.reg`**: Direct registry script mapping the cursors to your current user profile.
-- **`revert_to_default.reg`**: Restores the default Windows cursor scheme.
+| Cursor Name | Windows Role | File | Features |
+|---|---|---|---|
+| **Normal Select** | `Arrow` | `mono_normal_select.cur` | Flagship curved pointer with purple heel pill |
+| **Help Select** | `Help` | `mono_help_select.cur` | Pointer + question mark circle badge |
+| **Working in Background** | `AppStarting` | `mono_working_in_background.ani` | Pointer + 60 FPS rotating spinner ring |
+| **Busy / Wait** | `Wait` | `mono_busy.ani` | 60 FPS smooth rotating tri-arc spinner with 3 purple dots |
+| **Precision Select** | `Crosshair` | `mono_precision_select.cur` | 4-segment crosshair with center dot & 4 outer purple tips |
+| **Text Select** | `IBeam` | `mono_text_select.cur` | Sculpted I-beam with center purple accent bar |
+| **Handwriting** | `NWPen` | `mono_handwriting.cur` | Diagonal stylus with solid black body & purple lead tip |
+| **Unavailable** | `No` | `mono_unavailable.cur` | Lilac circle with diagonal purple slash |
+| **Vertical Resize** | `SizeNS` | `mono_vertical_resize.cur` | Double-headed vertical arrow |
+| **Horizontal Resize** | `SizeWE` | `mono_horizontal_resize.cur` | Double-headed horizontal arrow |
+| **Diagonal Resize 1** | `SizeNWSE` | `mono_diagonal_resize_1.cur` | Northwest-to-Southeast diagonal resize arrow |
+| **Diagonal Resize 2** | `SizeNESW` | `mono_diagonal_resize_2.cur` | Northeast-to-Southwest diagonal resize arrow |
+| **Move** | `SizeAll` | `mono_move.cur` | 4-way move arrow with center purple pivot diamond |
+| **Alternate Select** | `UpArrow` | `mono_alternate_select.cur` | Upward vertical arrow |
+| **Link Select** | `Hand` | `mono_link_select.cur` | Interlocking rounded chain links with center accent |
+| **Location Select** | `Pin` | `mono_location_select.cur` | Map pin teardrop with purple center core |
+| **Person Select** | `Person` | `mono_person_select.cur` | User avatar silhouette with collar accent |
 
 ---
 
-## 🚀 How to Install & Use
+## 🚀 How to Install & Apply
 
-### Method 1: Instant Live Activation (Recommended)
-Run the Python live activation script:
-```powershell
-py install/apply_mono_live.py
+### ⚡ Option 1: One-Click Instant Activation (Recommended)
+Double-click:
+```text
+apply_mono.bat
 ```
+*(Or in PowerShell: `powershell -ExecutionPolicy Bypass -File apply_mono.ps1`)*  
+**Instantly applies the cursors to your desktop live via Windows Win32 API — no restart or logoff required!**
 
-### Method 2: Standard Windows INF Installation
-1. Open the `install/` folder in File Explorer.
-2. Right-click [`install_mono.inf`](file:///d:/MonoCurseher/install/install_mono.inf) and click **Install**.
-3. Open Windows **Settings → Bluetooth & devices → Mouse → Additional mouse settings**.
+---
+
+### 🪟 Option 2: Standard Windows INF Installation
+1. Open the [`install/`](install/) folder.
+2. Right-click **`install_mono.inf`** and select **Install**.
+3. Press `Win + R`, type `main.cpl`, and hit **Enter**.
 4. In the **Pointers** tab, select **Mono** from the Scheme dropdown and click **Apply**.
 
 ---
 
+### 🔄 How to Revert to Default
+Double-click:
+```text
+restore_default.bat
+```
+*(Or in PowerShell: `powershell -ExecutionPolicy Bypass -File restore_default.ps1`)*
+
+---
+
+## 🧪 Interactive Testing Tools
+
+- **Desktop Cursor Tester**: Run `test_busy.bat` to launch the native live cursor tester with simulated heavy CPU workloads.
+- **Browser Cursor Studio**: Open [`test_busy.html`](test_busy.html) in any browser to inspect every cursor state with live interactive triggers.
+
+---
+
 ## 🛠️ Rebuilding from Source
-To modify design tokens or recompile the entire pack:
+
+To modify colors, geometry, or rebuild all multi-resolution binary containers:
 ```powershell
 py src/make_pack.py
 ```
-This will automatically generate the SVGs, rasterize multi-resolution PNGs, pack the binary `.cur` files with hotspots, and generate installer files and preview boards.
+This automatically builds master SVGs, renders transparent PNGs across all 7 resolutions, packs the binary `.cur` and 60 FPS animated `.ani` containers, updates registry scripts, and re-renders the high-resolution showcase graphics.
+
+---
+
+## 📄 License & Credits
+Designed and maintained by **Tushar** ([@Tushar27-git](https://github.com/Tushar27-git)). Free to use and customize!

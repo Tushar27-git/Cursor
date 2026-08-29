@@ -102,16 +102,14 @@ def generate_gallery_previews():
         p.setRenderHint(QPainter.TextAntialiasing, True)
         
         # Header Title
-        title_font = QFont("Segoe UI", 28, QFont.Bold)
-        p.setFont(title_font)
+        p.setFont(QFont("Segoe UI", 26, QFont.Bold))
         p.setPen(QColor(text_main))
-        p.drawText(QRect(PADDING, 30, TOTAL_W - PADDING * 2, 45), Qt.AlignLeft, "MONO — Cursor Pack (17 Icons)")
+        p.drawText(PADDING, 60, "MONO — Custom Windows 11 Cursor Pack")
         
-        # Subtitle
-        sub_font = QFont("Segoe UI", 13)
-        p.setFont(sub_font)
+        # Header Subtitle
+        p.setFont(QFont("Segoe UI", 12))
         p.setPen(QColor(text_sub))
-        p.drawText(QRect(PADDING, 75, TOTAL_W - PADDING * 2, 30), Qt.AlignLeft, "Outline: #F5F1FF (Near-White Lilac)  |  Accent: #B18CFF  |  Stroke: 4.8px Hollow  |  Contrast Protected")
+        p.drawText(PADDING, 92, "Outline: #F5F1FF (Near-White Lilac) | Accent: #B18CFF | Solid Black Fill | 60 FPS Animated .ANI")
         
         card_font = QFont("Segoe UI", 11, QFont.Bold)
         key_font = QFont("Segoe UI", 9)

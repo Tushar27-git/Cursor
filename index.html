@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MONO — Interactive Cursor Studio & Stress Suite</title>
+  <title>MONO — Live Cursor Studio & Size Controller</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <style>
+  <style id="baseStyles">
     :root {
       --bg: #08060F;
-      --bg-card: rgba(19, 15, 34, 0.75);
-      --bg-card-hover: rgba(28, 22, 50, 0.9);
-      --border: rgba(177, 140, 255, 0.15);
-      --border-hover: rgba(177, 140, 255, 0.5);
+      --bg-card: rgba(19, 15, 34, 0.85);
+      --bg-card-hover: rgba(28, 22, 50, 0.95);
+      --border: rgba(177, 140, 255, 0.18);
+      --border-hover: rgba(177, 140, 255, 0.55);
       --accent: #B18CFF;
-      --accent-glow: rgba(177, 140, 255, 0.25);
+      --accent-glow: rgba(177, 140, 255, 0.3);
       --text-main: #F5F1FF;
       --text-sub: #9E94BD;
       --text-muted: #6B628A;
       --card-inner: #0E0B1A;
       --badge-bg: rgba(177, 140, 255, 0.12);
+      --cursor-preview-size: 36px;
     }
 
     [data-theme="light"] {
       --bg: #F3F0FA;
-      --bg-card: rgba(255, 255, 255, 0.85);
-      --bg-card-hover: rgba(255, 255, 255, 0.98);
-      --border: rgba(140, 100, 220, 0.2);
-      --border-hover: rgba(140, 100, 220, 0.6);
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 1);
+      --border: rgba(140, 100, 220, 0.22);
+      --border-hover: rgba(140, 100, 220, 0.65);
       --accent: #7A3FE8;
-      --accent-glow: rgba(122, 63, 232, 0.2);
+      --accent-glow: rgba(122, 63, 232, 0.25);
       --text-main: #130F22;
       --text-sub: #5C5278;
       --text-muted: #887EAA;
@@ -43,7 +44,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
 
     body {
@@ -53,20 +54,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px 80px;
-      cursor: url('dist/mono_normal_select.cur'), default;
+      padding: 30px 20px 80px;
     }
-
-    /* Live Cursor Classes */
-    body.cursor-busy { cursor: url('dist/mono_busy.cur'), wait !important; }
-    body.cursor-appstarting { cursor: url('dist/mono_working_in_background.cur'), progress !important; }
 
     .wrapper {
       width: 100%;
       max-width: 1080px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 22px;
     }
 
     /* Header Bar */
@@ -74,16 +70,18 @@
       background: var(--bg-card);
       backdrop-filter: blur(16px);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 24px 32px;
+      border-radius: 20px;
+      padding: 20px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .brand-title {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       letter-spacing: -0.8px;
       background: linear-gradient(135deg, var(--text-main) 20%, var(--accent) 100%);
@@ -91,7 +89,7 @@
       -webkit-text-fill-color: transparent;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .badge {
@@ -109,7 +107,7 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .theme-toggle-btn {
@@ -130,6 +128,112 @@
       border-color: var(--accent);
     }
 
+    /* Interactive Size Controller Panel */
+    .size-control-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid var(--accent);
+      border-radius: 20px;
+      padding: 22px 28px;
+      box-shadow: 0 0 35px var(--accent-glow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .size-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .size-panel-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .size-indicator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 10px;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .size-slider {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 8px;
+      border-radius: 6px;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .size-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #FFFFFF;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--accent);
+      transition: transform 0.1s;
+    }
+
+    .size-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.18);
+    }
+
+    .preset-btns-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .preset-btn {
+      background: var(--card-inner);
+      color: var(--text-sub);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-main);
+      border-color: var(--accent);
+    }
+
+    .preset-btn.active-preset {
+      background: var(--accent);
+      color: #08060F;
+      border-color: #FFFFFF;
+      font-weight: 800;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
     /* Main Dual Stress Test Studio */
     .stress-grid {
       display: grid;
@@ -145,11 +249,11 @@
       background: var(--bg-card);
       backdrop-filter: blur(16px);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 26px;
+      border-radius: 20px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 8px 32px rgba(0,0,0,0.25);
@@ -167,7 +271,7 @@
     }
 
     .panel-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -175,8 +279,8 @@
     }
 
     .panel-anim-preview {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
     }
 
     .spin-anim {
@@ -191,13 +295,13 @@
       background: var(--card-inner);
       border: 2px dashed var(--border);
       border-radius: 16px;
-      padding: 24px 16px;
+      padding: 20px 16px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 120px;
+      min-height: 110px;
       transition: all 0.2s;
     }
 
@@ -237,7 +341,7 @@
 
     .btn-row {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
@@ -246,9 +350,9 @@
       background: var(--card-inner);
       color: var(--text-main);
       border: 1px solid var(--border);
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-size: 12.5px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
       display: flex;
@@ -276,13 +380,13 @@
       background: var(--bg-card);
       backdrop-filter: blur(16px);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 26px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.25);
     }
 
     .gallery-header {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
@@ -291,7 +395,7 @@
     }
 
     .gallery-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       letter-spacing: -0.5px;
     }
@@ -299,7 +403,7 @@
     .gallery-desc {
       font-size: 13px;
       color: var(--text-sub);
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
     .active-cursor-pill {
@@ -314,15 +418,15 @@
 
     .cursor-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
     }
 
     .cursor-card {
       background: var(--card-inner);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px 12px 16px;
+      border-radius: 14px;
+      padding: 16px 10px 14px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -334,62 +438,36 @@
     .cursor-card:hover {
       border-color: var(--accent);
       background: var(--bg-card-hover);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 20px var(--accent-glow);
     }
 
     .cursor-card img {
-      width: 52px;
-      height: 52px;
-      margin-bottom: 12px;
+      width: var(--cursor-preview-size);
+      height: var(--cursor-preview-size);
+      margin-bottom: 10px;
       image-rendering: -webkit-optimize-contrast;
-      transition: transform 0.2s ease;
-    }
-
-    .cursor-card:hover img {
-      transform: scale(1.1);
+      transition: width 0.15s ease, height 0.15s ease;
     }
 
     .cursor-name {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .cursor-key {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px;
+      font-size: 10px;
       color: var(--text-muted);
     }
-
-    /* Sandbox Interactive Canvas */
-    .sandbox-panel {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .sandbox-canvas-box {
-      background: var(--card-inner);
-      border: 2px dashed var(--border);
-      border-radius: 16px;
-      padding: 30px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 140px;
-    }
   </style>
+
+  <!-- Dynamic Cursor Style Tag dynamically updated by Size Controller -->
+  <style id="dynamicCursorStyles"></style>
 </head>
-<body class="cursor-normal">
+<body id="mainBody">
 
   <div class="wrapper">
     <!-- Header -->
@@ -404,6 +482,31 @@
         </button>
       </div>
     </header>
+
+    <!-- LIVE CURSOR SIZE CONTROLLER -->
+    <div class="size-control-panel">
+      <div class="size-panel-header">
+        <div class="size-panel-title">
+          <span>📏</span> Live Cursor Size Controller (Adjusts Mouse &amp; Previews in Real-Time):
+        </div>
+        <div class="size-indicator" id="sizeIndicatorBadge">Size: 32 × 32 px (Standard 100%)</div>
+      </div>
+
+      <div class="slider-row">
+        <span style="font-size: 12px; color: var(--text-sub); font-weight: 600;">16px</span>
+        <input type="range" class="size-slider" id="sizeSlider" min="16" max="96" step="8" value="32" oninput="onSizeSliderChange(this.value)">
+        <span style="font-size: 12px; color: var(--text-sub); font-weight: 600;">96px</span>
+      </div>
+
+      <div class="preset-btns-row">
+        <button class="preset-btn" onclick="applySizePreset(16, this)">16px (Mini)</button>
+        <button class="preset-btn" onclick="applySizePreset(24, this)">24px (Compact)</button>
+        <button class="preset-btn active-preset" onclick="applySizePreset(32, this)">32px (Windows Default 100%)</button>
+        <button class="preset-btn" onclick="applySizePreset(48, this)">48px (150% Scale)</button>
+        <button class="preset-btn" onclick="applySizePreset(64, this)">64px (200% Large)</button>
+        <button class="preset-btn" onclick="applySizePreset(96, this)">96px (Extra Large)</button>
+      </div>
+    </div>
 
     <!-- Dual Stress Test Studio -->
     <div class="stress-grid">
@@ -425,7 +528,7 @@
           </svg>
         </div>
 
-        <div class="interactive-zone" id="busyZone" style="cursor: url('dist/mono_busy.cur'), wait;">
+        <div class="interactive-zone class-cur-busy" id="busyZone">
           <div class="zone-title" id="busyTitle">Hover Here for Busy Cursor</div>
           <div class="zone-sub" id="busySub">Simulates heavy computations & data crunching</div>
           <div class="meter-bar-container" id="busyMeterContainer">
@@ -454,7 +557,7 @@
           </svg>
         </div>
 
-        <div class="interactive-zone" id="appStartingZone" style="cursor: url('dist/mono_working_in_background.cur'), progress;">
+        <div class="interactive-zone class-cur-working_in_background" id="appStartingZone">
           <div class="zone-title" id="appStartingTitle">Hover Here for Background Work</div>
           <div class="zone-sub" id="appStartingSub">Simulates launching applications & background tasks</div>
           <div class="meter-bar-container" id="appStartingMeterContainer">
@@ -474,172 +577,141 @@
     <div class="gallery-panel">
       <div class="gallery-header">
         <div>
-          <div class="gallery-title">Live Cursor Availability (Hover to Test)</div>
-          <div class="gallery-desc">Hover over any card below to test that exact Windows cursor on your screen instantly.</div>
+          <div class="gallery-title">Live Cursor Availability (Hover to Test at Selected Size)</div>
+          <div class="gallery-desc">Hover over any card below to test that exact cursor rendered at your custom size.</div>
         </div>
         <div class="active-cursor-pill" id="activePill">Hover over any cursor</div>
       </div>
 
-      <div class="cursor-grid">
-        <!-- 1. Normal Select -->
-        <div class="cursor-card" style="cursor: url('dist/mono_normal_select.cur'), default;" onmouseenter="setActivePill('Normal Select (Arrow)')">
-          <img src="png/64x64/mono_normal_select_64x64.png" alt="Normal">
-          <div class="cursor-name">Normal Select</div>
-          <div class="cursor-key">Arrow</div>
-        </div>
-
-        <!-- 2. Help Select -->
-        <div class="cursor-card" style="cursor: url('dist/mono_help_select.cur'), help;" onmouseenter="setActivePill('Help Select (Help)')">
-          <img src="png/64x64/mono_help_select_64x64.png" alt="Help">
-          <div class="cursor-name">Help Select</div>
-          <div class="cursor-key">Help</div>
-        </div>
-
-        <!-- 3. Working in Background -->
-        <div class="cursor-card" style="cursor: url('dist/mono_working_in_background.cur'), progress;" onmouseenter="setActivePill('Working in Background (AppStarting)')">
-          <img src="png/64x64/mono_working_in_background_64x64.png" alt="AppStarting">
-          <div class="cursor-name">Working in BG</div>
-          <div class="cursor-key">AppStarting</div>
-        </div>
-
-        <!-- 4. Busy -->
-        <div class="cursor-card" style="cursor: url('dist/mono_busy.cur'), wait;" onmouseenter="setActivePill('Busy / Wait (Wait)')">
-          <img src="png/64x64/mono_busy_64x64.png" alt="Busy">
-          <div class="cursor-name">Busy / Wait</div>
-          <div class="cursor-key">Wait</div>
-        </div>
-
-        <!-- 5. Precision Select -->
-        <div class="cursor-card" style="cursor: url('dist/mono_precision_select.cur'), crosshair;" onmouseenter="setActivePill('Precision Select (Crosshair)')">
-          <img src="png/64x64/mono_precision_select_64x64.png" alt="Crosshair">
-          <div class="cursor-name">Precision</div>
-          <div class="cursor-key">Crosshair</div>
-        </div>
-
-        <!-- 6. Text Select -->
-        <div class="cursor-card" style="cursor: url('dist/mono_text_select.cur'), text;" onmouseenter="setActivePill('Text Select (IBeam)')">
-          <img src="png/64x64/mono_text_select_64x64.png" alt="Text">
-          <div class="cursor-name">Text Select</div>
-          <div class="cursor-key">IBeam</div>
-        </div>
-
-        <!-- 7. Handwriting -->
-        <div class="cursor-card" style="cursor: url('dist/mono_handwriting.cur'), crosshair;" onmouseenter="setActivePill('Handwriting (NWPen)')">
-          <img src="png/64x64/mono_handwriting_64x64.png" alt="Pen">
-          <div class="cursor-name">Handwriting</div>
-          <div class="cursor-key">NWPen</div>
-        </div>
-
-        <!-- 8. Unavailable -->
-        <div class="cursor-card" style="cursor: url('dist/mono_unavailable.cur'), not-allowed;" onmouseenter="setActivePill('Unavailable (No)')">
-          <img src="png/64x64/mono_unavailable_64x64.png" alt="No">
-          <div class="cursor-name">Unavailable</div>
-          <div class="cursor-key">No</div>
-        </div>
-
-        <!-- 9. Vertical Resize -->
-        <div class="cursor-card" style="cursor: url('dist/mono_vertical_resize.cur'), ns-resize;" onmouseenter="setActivePill('Vertical Resize (SizeNS)')">
-          <img src="png/64x64/mono_vertical_resize_64x64.png" alt="SizeNS">
-          <div class="cursor-name">Vertical Resize</div>
-          <div class="cursor-key">SizeNS</div>
-        </div>
-
-        <!-- 10. Horizontal Resize -->
-        <div class="cursor-card" style="cursor: url('dist/mono_horizontal_resize.cur'), ew-resize;" onmouseenter="setActivePill('Horizontal Resize (SizeWE)')">
-          <img src="png/64x64/mono_horizontal_resize_64x64.png" alt="SizeWE">
-          <div class="cursor-name">Horizontal Resize</div>
-          <div class="cursor-key">SizeWE</div>
-        </div>
-
-        <!-- 11. Diagonal Resize 1 -->
-        <div class="cursor-card" style="cursor: url('dist/mono_diagonal_resize_1.cur'), nwse-resize;" onmouseenter="setActivePill('Diagonal Resize 1 (SizeNWSE)')">
-          <img src="png/64x64/mono_diagonal_resize_1_64x64.png" alt="NWSE">
-          <div class="cursor-name">Diagonal 1</div>
-          <div class="cursor-key">SizeNWSE</div>
-        </div>
-
-        <!-- 12. Diagonal Resize 2 -->
-        <div class="cursor-card" style="cursor: url('dist/mono_diagonal_resize_2.cur'), nesw-resize;" onmouseenter="setActivePill('Diagonal Resize 2 (SizeNESW)')">
-          <img src="png/64x64/mono_diagonal_resize_2_64x64.png" alt="NESW">
-          <div class="cursor-name">Diagonal 2</div>
-          <div class="cursor-key">SizeNESW</div>
-        </div>
-
-        <!-- 13. Move -->
-        <div class="cursor-card" style="cursor: url('dist/mono_move.cur'), move;" onmouseenter="setActivePill('Move (SizeAll)')">
-          <img src="png/64x64/mono_move_64x64.png" alt="Move">
-          <div class="cursor-name">Move</div>
-          <div class="cursor-key">SizeAll</div>
-        </div>
-
-        <!-- 14. Alternate Select -->
-        <div class="cursor-card" style="cursor: url('dist/mono_alternate_select.cur'), default;" onmouseenter="setActivePill('Alternate Select (UpArrow)')">
-          <img src="png/64x64/mono_alternate_select_64x64.png" alt="UpArrow">
-          <div class="cursor-name">Alternate</div>
-          <div class="cursor-key">UpArrow</div>
-        </div>
-
-        <!-- 15. Link Select -->
-        <div class="cursor-card" style="cursor: url('dist/mono_link_select.cur'), pointer;" onmouseenter="setActivePill('Link Select (Hand)')">
-          <img src="png/64x64/mono_link_select_64x64.png" alt="Hand">
-          <div class="cursor-name">Link Select</div>
-          <div class="cursor-key">Hand</div>
-        </div>
-
-        <!-- 16. Location Select -->
-        <div class="cursor-card" style="cursor: url('dist/mono_location_select.cur'), default;" onmouseenter="setActivePill('Location Select (Pin)')">
-          <img src="png/64x64/mono_location_select_64x64.png" alt="Pin">
-          <div class="cursor-name">Location</div>
-          <div class="cursor-key">Pin</div>
-        </div>
-
-        <!-- 17. Person Select -->
-        <div class="cursor-card" style="cursor: url('dist/mono_person_select.cur'), default;" onmouseenter="setActivePill('Person Select (Person)')">
-          <img src="png/64x64/mono_person_select_64x64.png" alt="Person">
-          <div class="cursor-name">Person</div>
-          <div class="cursor-key">Person</div>
-        </div>
-
-        <!-- 18. Text Drag -->
-        <div class="cursor-card" style="cursor: url('dist/mono_text_drag.cur'), copy;" onmouseenter="setActivePill('Text Drag & Move (Draft)')">
-          <img src="png/64x64/mono_text_drag_64x64.png" alt="Draft">
-          <div class="cursor-name">Text Drag</div>
-          <div class="cursor-key">Draft</div>
-        </div>
-
-        <!-- 19. Copy Drag -->
-        <div class="cursor-card" style="cursor: url('dist/mono_drag_copy.cur'), copy;" onmouseenter="setActivePill('Copy Drag (Copy)')">
-          <img src="png/64x64/mono_drag_copy_64x64.png" alt="Copy">
-          <div class="cursor-name">Copy Drag</div>
-          <div class="cursor-key">Copy</div>
-        </div>
-
-        <!-- 20. Link Drag -->
-        <div class="cursor-card" style="cursor: url('dist/mono_drag_link.cur'), alias;" onmouseenter="setActivePill('Link Drag (Alias)')">
-          <img src="png/64x64/mono_drag_link_64x64.png" alt="Alias">
-          <div class="cursor-name">Link Drag</div>
-          <div class="cursor-key">Alias</div>
-        </div>
-
-        <!-- 21. No Drop -->
-        <div class="cursor-card" style="cursor: url('dist/mono_dnd_no_drop.cur'), no-drop;" onmouseenter="setActivePill('No Drop (NoDrop)')">
-          <img src="png/64x64/mono_dnd_no_drop_64x64.png" alt="NoDrop">
-          <div class="cursor-name">No Drop</div>
-          <div class="cursor-key">NoDrop</div>
-        </div>
-
-        <!-- 22. Vertical Text -->
-        <div class="cursor-card" style="cursor: url('dist/mono_vertical_text.cur'), vertical-text;" onmouseenter="setActivePill('Vertical Text (VerticalText)')">
-          <img src="png/64x64/mono_vertical_text_64x64.png" alt="VerticalText">
-          <div class="cursor-name">Vertical Text</div>
-          <div class="cursor-key">VerticalText</div>
-        </div>
+      <div class="cursor-grid" id="cursorGrid">
+        <!-- Injected dynamically by JS to support all 22 cursors with active sizing -->
       </div>
     </div>
   </div>
 
   <script>
-    // Theme toggle
+    // Cursor Metadata Registry (Hotspots & Definitions)
+    const CURSORS = [
+      { id: "normal_select", name: "Normal Select", key: "Arrow", hx: 10/64, hy: 5/64, fallback: "default" },
+      { id: "help_select", name: "Help Select", key: "Help", hx: 10/64, hy: 5/64, fallback: "help" },
+      { id: "working_in_background", name: "Working in BG", key: "AppStarting", hx: 10/64, hy: 5/64, fallback: "progress" },
+      { id: "busy", name: "Busy / Wait", key: "Wait", hx: 32/64, hy: 32/64, fallback: "wait" },
+      { id: "precision_select", name: "Precision", key: "Crosshair", hx: 32/64, hy: 32/64, fallback: "crosshair" },
+      { id: "text_select", name: "Text Select", key: "IBeam", hx: 32/64, hy: 32/64, fallback: "text" },
+      { id: "handwriting", name: "Handwriting", key: "NWPen", hx: 9/64, hy: 55/64, fallback: "crosshair" },
+      { id: "unavailable", name: "Unavailable", key: "No", hx: 32/64, hy: 32/64, fallback: "not-allowed" },
+      { id: "vertical_resize", name: "Vertical Resize", key: "SizeNS", hx: 32/64, hy: 32/64, fallback: "ns-resize" },
+      { id: "horizontal_resize", name: "Horizontal Resize", key: "SizeWE", hx: 32/64, hy: 32/64, fallback: "ew-resize" },
+      { id: "diagonal_resize_1", name: "Diagonal 1", key: "SizeNWSE", hx: 32/64, hy: 32/64, fallback: "nwse-resize" },
+      { id: "diagonal_resize_2", name: "Diagonal 2", key: "SizeNESW", hx: 32/64, hy: 32/64, fallback: "nesw-resize" },
+      { id: "move", name: "Move", key: "SizeAll", hx: 32/64, hy: 32/64, fallback: "move" },
+      { id: "alternate_select", name: "Alternate", key: "UpArrow", hx: 32/64, hy: 6/64, fallback: "default" },
+      { id: "link_select", name: "Link Select", key: "Hand", hx: 18/64, hy: 18/64, fallback: "pointer" },
+      { id: "location_select", name: "Location", key: "Pin", hx: 32/64, hy: 59/64, fallback: "default" },
+      { id: "person_select", name: "Person", key: "Person", hx: 32/64, hy: 32/64, fallback: "default" },
+      { id: "text_drag", name: "Text Drag", key: "Draft", hx: 10/64, hy: 5/64, fallback: "copy" },
+      { id: "drag_copy", name: "Copy Drag", key: "Copy", hx: 10/64, hy: 5/64, fallback: "copy" },
+      { id: "drag_link", name: "Link Drag", key: "Alias", hx: 10/64, hy: 5/64, fallback: "alias" },
+      { id: "dnd_no_drop", name: "No Drop", key: "NoDrop", hx: 10/64, hy: 5/64, fallback: "no-drop" },
+      { id: "vertical_text", name: "Vertical Text", key: "VerticalText", hx: 32/64, hy: 32/64, fallback: "vertical-text" }
+    ];
+
+    let currentSize = 32;
+
+    // Available discrete PNG resolutions generated in pack
+    const RESOLUTIONS = [16, 24, 32, 48, 64, 96, 128];
+
+    function getClosestResolution(size) {
+      let closest = RESOLUTIONS[0];
+      let minDiff = Math.abs(size - closest);
+      for (const res of RESOLUTIONS) {
+        const diff = Math.abs(size - res);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closest = res;
+        }
+      }
+      return closest;
+    }
+
+    // Build & Update Dynamic CSS Cursor Rules for Active Sizing
+    function updateDynamicCursors(size) {
+      currentSize = parseInt(size, 10);
+      const res = getClosestResolution(currentSize);
+      const resFolder = `${res}x${res}`;
+
+      let cssRules = `
+        body {
+          cursor: url('png/${resFolder}/mono_normal_select_${resFolder}.png') ${Math.round(10/64 * res)} ${Math.round(5/64 * res)}, default;
+        }
+        body.cursor-busy {
+          cursor: url('png/${resFolder}/mono_busy_${resFolder}.png') ${Math.round(32/64 * res)} ${Math.round(32/64 * res)}, wait !important;
+        }
+        body.cursor-appstarting {
+          cursor: url('png/${resFolder}/mono_working_in_background_${resFolder}.png') ${Math.round(10/64 * res)} ${Math.round(5/64 * res)}, progress !important;
+        }
+      `;
+
+      CURSORS.forEach(c => {
+        const hx = Math.round(c.hx * res);
+        const hy = Math.round(c.hy * res);
+        cssRules += `
+          .class-cur-${c.id} {
+            cursor: url('png/${resFolder}/mono_${c.id}_${resFolder}.png') ${hx} ${hy}, ${c.fallback} !important;
+          }
+        `;
+      });
+
+      document.getElementById('dynamicCursorStyles').innerHTML = cssRules;
+      document.documentElement.style.setProperty('--cursor-preview-size', `${Math.max(28, Math.min(68, currentSize))}px`);
+
+      // Update badge label
+      const pct = Math.round((currentSize / 32) * 100);
+      let desc = "Standard 100%";
+      if (currentSize === 16) desc = "Mini 50%";
+      else if (currentSize === 24) desc = "Compact 75%";
+      else if (currentSize === 48) desc = "Medium 150%";
+      else if (currentSize === 64) desc = "Large 200%";
+      else if (currentSize === 96) desc = "Extra Large 300%";
+      else desc = `${pct}% Scale`;
+
+      document.getElementById('sizeIndicatorBadge').textContent = `Size: ${currentSize} × ${currentSize} px (${desc})`;
+    }
+
+    // Build the 22-cursor gallery cards
+    function renderGallery() {
+      const grid = document.getElementById('cursorGrid');
+      grid.innerHTML = '';
+      
+      CURSORS.forEach(c => {
+        const card = document.createElement('div');
+        card.className = `cursor-card class-cur-${c.id}`;
+        card.onmouseenter = () => setActivePill(`${c.name} (${c.key})`);
+        
+        card.innerHTML = `
+          <img src="png/64x64/mono_${c.id}_64x64.png" alt="${c.name}">
+          <div class="cursor-name">${c.name}</div>
+          <div class="cursor-key">${c.key}</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Size Slider Handler
+    function onSizeSliderChange(val) {
+      document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active-preset'));
+      updateDynamicCursors(val);
+    }
+
+    // Preset Button Click Handler
+    function applySizePreset(size, btnElement) {
+      document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active-preset'));
+      if (btnElement) btnElement.classList.add('active-preset');
+      document.getElementById('sizeSlider').value = size;
+      updateDynamicCursors(size);
+    }
+
+    // Theme Toggle
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme');
       const next = current === 'light' ? 'dark' : 'light';
@@ -651,7 +723,7 @@
       activePill.textContent = 'Active: ' + text;
     }
 
-    // Stress testing logic
+    // Busy / Wait Stress Testing
     let busyTimer = null;
     let isBusyLocked = false;
 
@@ -671,25 +743,23 @@
       container.style.display = 'block';
       meter.style.width = '0%';
 
-      let progress = 0;
+      let count = 0;
       const intervalMs = 40;
       const totalSteps = (seconds * 1000) / intervalMs;
-      let count = 0;
 
       busyTimer = setInterval(() => {
         count++;
-        // Heavy computational JS math
         let acc = 0;
         for (let i = 0; i < 150000; i++) {
           acc += Math.sin(i) * Math.cos(i);
         }
-        progress = Math.min(100, (count / totalSteps) * 100);
+        const progress = Math.min(100, (count / totalSteps) * 100);
         meter.style.width = progress + '%';
         sub.textContent = `Calculated ${(count * 150000).toLocaleString()} ops | Wait Cursor Active`;
 
         if (progress >= 100) {
           clearInterval(busyTimer);
-          document.body.className = 'cursor-normal';
+          document.body.className = '';
           panel.classList.remove('active-busy');
           title.textContent = '✅ Heavy Calculation Complete!';
           sub.textContent = 'Cursor restored to Normal Select.';
@@ -714,7 +784,7 @@
         title.textContent = '🔒 INFINITE BUSY ACTIVE';
         sub.textContent = 'Move your mouse anywhere across the page to inspect.';
       } else {
-        document.body.className = 'cursor-normal';
+        document.body.className = '';
         panel.classList.remove('active-busy');
         btn.classList.remove('btn-active');
         btn.textContent = '🔒 Hold Busy';
@@ -723,7 +793,7 @@
       }
     }
 
-    // App Starting (Working in background) stress testing logic
+    // Working In Background Stress Testing
     let appTimer = null;
     let isAppLocked = false;
 
@@ -743,20 +813,19 @@
       container.style.display = 'block';
       meter.style.width = '0%';
 
-      let progress = 0;
+      let count = 0;
       const intervalMs = 40;
       const totalSteps = (seconds * 1000) / intervalMs;
-      let count = 0;
 
       appTimer = setInterval(() => {
         count++;
-        progress = Math.min(100, (count / totalSteps) * 100);
+        const progress = Math.min(100, (count / totalSteps) * 100);
         meter.style.width = progress + '%';
         sub.textContent = `Spawning worker threads & loading assets... (${Math.round(progress)}%)`;
 
         if (progress >= 100) {
           clearInterval(appTimer);
-          document.body.className = 'cursor-normal';
+          document.body.className = '';
           panel.classList.remove('active-busy');
           title.textContent = '✅ App Successfully Initialized!';
           sub.textContent = 'Cursor restored to Normal Select.';
@@ -781,7 +850,7 @@
         title.textContent = '🔒 BACKGROUND WORK ACTIVE';
         sub.textContent = 'Working in background spinner pointer active across screen.';
       } else {
-        document.body.className = 'cursor-normal';
+        document.body.className = '';
         panel.classList.remove('active-busy');
         btn.classList.remove('btn-active');
         btn.textContent = '🔒 Hold State';
@@ -789,6 +858,12 @@
         sub.textContent = 'Simulates launching applications & background tasks';
       }
     }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderGallery();
+      updateDynamicCursors(32);
+    });
   </script>
 </body>
 </html>

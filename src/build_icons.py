@@ -2,7 +2,7 @@
 MONO Cursor Pack - 17 Master SVG Icon Generators
 Features:
 - Solid black (#000000) opaque interior fill (non pass-through)
-- +15% scaled up geometry for bold desktop presence
+- +3.5% scale enhancement for maximum desktop crispness & legibility
 - Pale-lilac (#F5F1FF) outline + saturated lilac (#B18CFF) accent points
 - Dark outer contrast halo for light background visibility
 """
@@ -16,28 +16,28 @@ ICONS["normal_select"] = {
     "key": "Arrow",
     "filename": "mono_normal_select",
     "name": "Normal Select",
-    "hotspot": (11 / 64, 6 / 64),
+    "hotspot": (10 / 64, 5 / 64),
     "svg": """
   <!-- Outer Dark Contrast Stroke + Solid Black Body -->
-  <path class="contrast-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="contrast-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Pale Lilac-White Outline with Solid Black Fill -->
-  <path class="outline-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="outline-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Floating Purple Accent Pill in Heel -->
-  <rect class="accent-fill" x="13.8" y="39" width="4.4" height="10.5" rx="2.2" />
+  <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
 """
 }
 
@@ -46,38 +46,38 @@ ICONS["help_select"] = {
     "key": "Help",
     "filename": "mono_help_select",
     "name": "Help Select",
-    "hotspot": (11 / 64, 6 / 64),
+    "hotspot": (10 / 64, 5 / 64),
     "svg": """
   <!-- Base Pointer Contrast + Solid Black -->
-  <path class="contrast-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="contrast-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Base Pointer Outline -->
-  <path class="outline-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="outline-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Purple Pill in Heel -->
-  <rect class="accent-fill" x="13.8" y="39" width="4.4" height="10.5" rx="2.2" />
+  <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
 
   <!-- Help Circle Badge at Lower Right (Solid Mask + Lilac Circle) -->
-  <circle cx="51" cy="49" r="10" fill="#000000" />
-  <circle class="contrast-stroke-lean" cx="51" cy="49" r="8.8" />
-  <circle class="accent-fill" cx="51" cy="49" r="8.5" />
+  <circle cx="52" cy="50" r="10.5" fill="#000000" />
+  <circle class="contrast-stroke-lean" cx="52" cy="50" r="9.2" />
+  <circle class="accent-fill" cx="52" cy="50" r="8.8" />
   
   <!-- Question Mark Inside Badge -->
-  <path d="M 48.6 45.8 C 48.6 43.8 49.9 42.8 51.2 42.8 C 52.6 42.8 53.6 43.8 53.6 45 C 53.6 46.2 52.6 47 51.6 47.8 L 51.6 49.2" 
-        stroke="#F5F1FF" stroke-width="2" stroke-linecap="round" fill="none" />
-  <circle cx="51.6" cy="52.6" r="1.2" fill="#F5F1FF" />
+  <path d="M 49.5 46.5 C 49.5 44.4 50.8 43.4 52.2 43.4 C 53.6 43.4 54.7 44.4 54.7 45.7 C 54.7 47 53.6 47.8 52.6 48.6 L 52.6 50.1" 
+        stroke="#F5F1FF" stroke-width="2.1" stroke-linecap="round" fill="none" />
+  <circle cx="52.6" cy="53.5" r="1.2" fill="#F5F1FF" />
 """
 }
 
@@ -86,35 +86,35 @@ ICONS["working_in_background"] = {
     "key": "AppStarting",
     "filename": "mono_working_in_background",
     "name": "Working in Background",
-    "hotspot": (11 / 64, 6 / 64),
+    "hotspot": (10 / 64, 5 / 64),
     "svg": """
   <!-- Base Pointer Contrast + Solid Black -->
-  <path class="contrast-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="contrast-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Base Pointer Outline -->
-  <path class="outline-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="outline-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Purple Pill in Heel -->
-  <rect class="accent-fill" x="13.8" y="39" width="4.4" height="10.5" rx="2.2" />
+  <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
 
   <!-- Spinner Ring at Lower Right -->
-  <circle cx="51" cy="49" r="9" fill="#000000" />
-  <circle cx="51" cy="49" r="8" stroke="#000000" stroke-width="6" fill="none" stroke-dasharray="28 14" />
-  <circle cx="51" cy="49" r="8" stroke="#F5F1FF" stroke-width="3.5" fill="none" stroke-dasharray="28 14" stroke-linecap="round" />
+  <circle cx="52" cy="50" r="9.5" fill="#000000" />
+  <circle cx="52" cy="50" r="8.4" stroke="#000000" stroke-width="6.2" fill="none" stroke-dasharray="29 15" />
+  <circle cx="52" cy="50" r="8.4" stroke="#F5F1FF" stroke-width="3.6" fill="none" stroke-dasharray="29 15" stroke-linecap="round" />
   <!-- Purple Accent Dot -->
-  <circle class="accent-fill" cx="57" cy="44" r="2.8" />
+  <circle class="accent-fill" cx="58.2" cy="44.8" r="2.9" />
 """
 }
 
@@ -126,27 +126,27 @@ ICONS["busy"] = {
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
   <!-- Tri-Arc Spinner connecting 3 purple dots with solid black backdrop -->
-  <circle cx="32" cy="32" r="22" fill="#000000" />
+  <circle cx="32" cy="32" r="23" fill="#000000" />
   
   <!-- Dark Contrast Arcs -->
-  <path class="contrast-stroke-hollow" d="M 32 15 A 19 19 0 0 1 47 41" />
-  <path class="contrast-stroke-hollow" d="M 47 41 A 19 19 0 0 1 17 41" />
-  <path class="contrast-stroke-hollow" d="M 17 41 A 19 19 0 0 1 32 15" />
+  <path class="contrast-stroke-hollow" d="M 32 14.5 A 19.8 19.8 0 0 1 47.8 41.8" />
+  <path class="contrast-stroke-hollow" d="M 47.8 41.8 A 19.8 19.8 0 0 1 16.2 41.8" />
+  <path class="contrast-stroke-hollow" d="M 16.2 41.8 A 19.8 19.8 0 0 1 32 14.5" />
 
   <!-- Pale Lilac Outline Arcs -->
-  <path class="outline-stroke-hollow" d="M 32 15 A 19 19 0 0 1 47 41" />
-  <path class="outline-stroke-hollow" d="M 47 41 A 19 19 0 0 1 17 41" />
-  <path class="outline-stroke-hollow" d="M 17 41 A 19 19 0 0 1 32 15" />
+  <path class="outline-stroke-hollow" d="M 32 14.5 A 19.8 19.8 0 0 1 47.8 41.8" />
+  <path class="outline-stroke-hollow" d="M 47.8 41.8 A 19.8 19.8 0 0 1 16.2 41.8" />
+  <path class="outline-stroke-hollow" d="M 16.2 41.8 A 19.8 19.8 0 0 1 32 14.5" />
 
   <!-- 3 Purple Accent Dots -->
-  <circle cx="32" cy="15" r="7" fill="#000000" />
-  <circle class="accent-fill" cx="32" cy="15" r="5.2" />
+  <circle cx="32" cy="14.5" r="7.2" fill="#000000" />
+  <circle class="accent-fill" cx="32" cy="14.5" r="5.4" />
 
-  <circle cx="47" cy="41" r="7" fill="#000000" />
-  <circle class="accent-fill" cx="47" cy="41" r="5.2" />
+  <circle cx="47.8" cy="41.8" r="7.2" fill="#000000" />
+  <circle class="accent-fill" cx="47.8" cy="41.8" r="5.4" />
 
-  <circle cx="17" cy="41" r="7" fill="#000000" />
-  <circle class="accent-fill" cx="17" cy="41" r="5.2" />
+  <circle cx="16.2" cy="41.8" r="7.2" fill="#000000" />
+  <circle class="accent-fill" cx="16.2" cy="41.8" r="5.4" />
 """
 }
 
@@ -159,29 +159,29 @@ ICONS["precision_select"] = {
     "svg": """
   <!-- 4 Segmented Crosshair Arms with Solid Black Body -->
   <!-- Top Arm -->
-  <rect class="contrast-stroke" x="29" y="6" width="6" height="17" rx="3" />
+  <rect class="contrast-stroke" x="28.8" y="5.5" width="6.4" height="17.5" rx="3.2" />
   <!-- Bottom Arm -->
-  <rect class="contrast-stroke" x="29" y="41" width="6" height="17" rx="3" />
+  <rect class="contrast-stroke" x="28.8" y="41" width="6.4" height="17.5" rx="3.2" />
   <!-- Left Arm -->
-  <rect class="contrast-stroke" x="6" y="29" width="17" height="6" rx="3" />
+  <rect class="contrast-stroke" x="5.5" y="28.8" width="17.5" height="6.4" rx="3.2" />
   <!-- Right Arm -->
-  <rect class="contrast-stroke" x="41" y="29" width="17" height="6" rx="3" />
+  <rect class="contrast-stroke" x="41" y="28.8" width="17.5" height="6.4" rx="3.2" />
 
   <!-- Pale Lilac Outlines -->
-  <rect class="outline-stroke" x="29" y="6" width="6" height="17" rx="3" />
-  <rect class="outline-stroke" x="29" y="41" width="6" height="17" rx="3" />
-  <rect class="outline-stroke" x="6" y="29" width="17" height="6" rx="3" />
-  <rect class="outline-stroke" x="41" y="29" width="17" height="6" rx="3" />
+  <rect class="outline-stroke" x="28.8" y="5.5" width="6.4" height="17.5" rx="3.2" />
+  <rect class="outline-stroke" x="28.8" y="41" width="6.4" height="17.5" rx="3.2" />
+  <rect class="outline-stroke" x="5.5" y="28.8" width="17.5" height="6.4" rx="3.2" />
+  <rect class="outline-stroke" x="41" y="28.8" width="17.5" height="6.4" rx="3.2" />
 
   <!-- Center Purple Dot with Black Collar -->
-  <circle cx="32" cy="32" r="5.5" fill="#000000" />
-  <circle class="accent-fill" cx="32" cy="32" r="3.8" />
+  <circle cx="32" cy="32" r="5.8" fill="#000000" />
+  <circle class="accent-fill" cx="32" cy="32" r="4.0" />
 
   <!-- Purple Accent Dots on 4 Outer Tips -->
-  <circle class="accent-fill" cx="32" cy="7.5" r="2.2" />
-  <circle class="accent-fill" cx="32" cy="56.5" r="2.2" />
-  <circle class="accent-fill" cx="7.5" cy="32" r="2.2" />
-  <circle class="accent-fill" cx="56.5" cy="32" r="2.2" />
+  <circle class="accent-fill" cx="32" cy="7" r="2.3" />
+  <circle class="accent-fill" cx="32" cy="57" r="2.3" />
+  <circle class="accent-fill" cx="7" cy="32" r="2.3" />
+  <circle class="accent-fill" cx="57" cy="32" r="2.3" />
 """
 }
 
@@ -193,11 +193,11 @@ ICONS["text_select"] = {
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
   <!-- Bold Solid Black I-Beam with Lilac Outline & Purple Vertical Core -->
-  <path class="contrast-stroke" d="M 18 11 L 46 11 C 42 19, 42 45, 46 53 L 18 53 C 22 45, 22 19, 18 11 Z" />
-  <path class="outline-stroke" d="M 18 11 L 46 11 C 42 19, 42 45, 46 53 L 18 53 C 22 45, 22 19, 18 11 Z" />
+  <path class="contrast-stroke" d="M 17 10 L 47 10 C 43 18, 43 46, 47 54 L 17 54 C 21 46, 21 18, 17 10 Z" />
+  <path class="outline-stroke" d="M 17 10 L 47 10 C 43 18, 43 46, 47 54 L 17 54 C 21 46, 21 18, 17 10 Z" />
 
   <!-- Center Purple Accent Bar -->
-  <rect class="accent-fill" x="30" y="17" width="4" height="30" rx="2" />
+  <rect class="accent-fill" x="29.8" y="16.5" width="4.4" height="31" rx="2.2" />
 """
 }
 
@@ -206,31 +206,31 @@ ICONS["handwriting"] = {
     "key": "NWPen",
     "filename": "mono_handwriting",
     "name": "Handwriting",
-    "hotspot": (10 / 64, 54 / 64),
+    "hotspot": (9 / 64, 55 / 64),
     "svg": """
-  <!-- Diagonal Pencil Outline with Solid Black Fill pointing to (10, 54) -->
-  <path class="contrast-stroke" d="M 49 14 
-           C 53 10, 57 14, 54 18 
+  <!-- Diagonal Pencil Outline with Solid Black Fill pointing to (9, 55) -->
+  <path class="contrast-stroke" d="M 50 13 
+           C 54 9, 58 13, 55 17 
            L 24 48 
-           L 10 54 
+           L 9 55 
            L 16 40 
-           L 46 10 
-           C 47 9, 48 9, 49 10 Z" />
+           L 47 9 
+           C 48 8, 49 8, 50 9 Z" />
   
-  <path class="outline-stroke" d="M 49 14 
-           C 53 10, 57 14, 54 18 
+  <path class="outline-stroke" d="M 50 13 
+           C 54 9, 58 13, 55 17 
            L 24 48 
-           L 10 54 
+           L 9 55 
            L 16 40 
-           L 46 10 
-           C 47 9, 48 9, 49 10 Z" />
+           L 47 9 
+           C 48 8, 49 8, 50 9 Z" />
 
   <!-- Pencil Collar Line -->
-  <line class="contrast-stroke-lean" x1="20" y1="44" x2="26" y2="50" />
-  <line class="outline-stroke-lean" x1="20" y1="44" x2="26" y2="50" />
+  <line class="contrast-stroke-lean" x1="19.5" y1="43.5" x2="26.5" y2="50.5" />
+  <line class="outline-stroke-lean" x1="19.5" y1="43.5" x2="26.5" y2="50.5" />
 
   <!-- Purple Filled Tip Lead -->
-  <path class="accent-fill" d="M 10 54 L 17 44 L 23 50 Z" />
+  <path class="accent-fill" d="M 9 55 L 16.5 44 L 23.5 51 Z" />
 """
 }
 
@@ -242,12 +242,12 @@ ICONS["unavailable"] = {
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
   <!-- Solid Black Circle with Pale Lilac Ring & Purple Slash -->
-  <circle class="contrast-stroke" cx="32" cy="32" r="21" />
-  <circle class="outline-stroke" cx="32" cy="32" r="21" />
+  <circle class="contrast-stroke" cx="32" cy="32" r="22" />
+  <circle class="outline-stroke" cx="32" cy="32" r="22" />
 
   <!-- Purple Diagonal Accent Slash -->
-  <line class="contrast-stroke-hollow" x1="17" y1="17" x2="47" y2="47" />
-  <line class="accent-stroke" x1="17" y1="17" x2="47" y2="47" />
+  <line class="contrast-stroke-hollow" x1="16.5" y1="16.5" x2="47.5" y2="47.5" />
+  <line class="accent-stroke" x1="16.5" y1="16.5" x2="47.5" y2="47.5" />
 """
 }
 
@@ -259,8 +259,8 @@ ICONS["vertical_resize"] = {
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
   <!-- Solid Black Double-Headed Vertical Arrow -->
-  <path class="contrast-stroke" d="M 21 19 L 32 7 L 43 19 L 35 19 L 35 45 L 43 45 L 32 57 L 21 45 L 29 45 L 29 19 Z" />
-  <path class="outline-stroke" d="M 21 19 L 32 7 L 43 19 L 35 19 L 35 45 L 43 45 L 32 57 L 21 45 L 29 45 L 29 19 Z" />
+  <path class="contrast-stroke" d="M 21 19 L 32 6 L 43 19 L 35 19 L 35 45 L 43 45 L 32 58 L 21 45 L 29 45 L 29 19 Z" />
+  <path class="outline-stroke" d="M 21 19 L 32 6 L 43 19 L 35 19 L 35 45 L 43 45 L 32 58 L 21 45 L 29 45 L 29 19 Z" />
 """
 }
 
@@ -272,8 +272,8 @@ ICONS["horizontal_resize"] = {
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
   <!-- Solid Black Double-Headed Horizontal Arrow -->
-  <path class="contrast-stroke" d="M 19 21 L 7 32 L 19 43 L 19 35 L 45 35 L 45 43 L 57 32 L 45 21 L 45 29 L 19 29 Z" />
-  <path class="outline-stroke" d="M 19 21 L 7 32 L 19 43 L 19 35 L 45 35 L 45 43 L 57 32 L 45 21 L 45 29 L 19 29 Z" />
+  <path class="contrast-stroke" d="M 19 21 L 6 32 L 19 43 L 19 35 L 45 35 L 45 43 L 58 32 L 45 21 L 45 29 L 19 29 Z" />
+  <path class="outline-stroke" d="M 19 21 L 6 32 L 19 43 L 19 35 L 45 35 L 45 43 L 58 32 L 45 21 L 45 29 L 19 29 Z" />
 """
 }
 
@@ -284,7 +284,7 @@ ICONS["diagonal_resize_1"] = {
     "name": "Diagonal Resize 1 (NWSE)",
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
-  <!-- Solid Black NW to SE Diagonal Arrow (Scaled -10% for Optical Balance) -->
+  <!-- Solid Black NW to SE Diagonal Arrow (Scaled for Optical Balance) -->
   <path class="contrast-stroke" d="M 13 25 L 13 13 L 25 13 L 20 18 L 46 44 L 51 39 L 51 51 L 39 51 L 44 46 L 18 20 Z" />
   <path class="outline-stroke" d="M 13 25 L 13 13 L 25 13 L 20 18 L 46 44 L 51 39 L 51 51 L 39 51 L 44 46 L 18 20 Z" />
 """
@@ -297,7 +297,7 @@ ICONS["diagonal_resize_2"] = {
     "name": "Diagonal Resize 2 (NESW)",
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
-  <!-- Solid Black NE to SW Diagonal Arrow (Scaled -10% for Optical Balance) -->
+  <!-- Solid Black NE to SW Diagonal Arrow (Scaled for Optical Balance) -->
   <path class="contrast-stroke" d="M 39 13 L 51 13 L 51 25 L 46 20 L 20 46 L 25 51 L 13 51 L 13 39 L 18 44 L 44 18 Z" />
   <path class="outline-stroke" d="M 39 13 L 51 13 L 51 25 L 46 20 L 20 46 L 25 51 L 13 51 L 13 39 L 18 44 L 44 18 Z" />
 """
@@ -311,11 +311,11 @@ ICONS["move"] = {
     "hotspot": (32 / 64, 32 / 64),
     "svg": """
   <!-- 4-Directional Solid Black Arrow with Purple Center Diamond -->
-  <path class="contrast-stroke" d="M 24 17 L 32 8 L 40 17 L 35 17 L 35 29 L 47 29 L 47 24 L 56 32 L 47 40 L 47 35 L 35 35 L 35 47 L 40 47 L 32 56 L 24 47 L 29 47 L 29 35 L 17 35 L 17 40 L 8 32 L 17 24 L 17 29 L 29 29 L 29 17 Z" />
-  <path class="outline-stroke" d="M 24 17 L 32 8 L 40 17 L 35 17 L 35 29 L 47 29 L 47 24 L 56 32 L 47 40 L 47 35 L 35 35 L 35 47 L 40 47 L 32 56 L 24 47 L 29 47 L 29 35 L 17 35 L 17 40 L 8 32 L 17 24 L 17 29 L 29 29 L 29 17 Z" />
+  <path class="contrast-stroke" d="M 24 16 L 32 7 L 40 16 L 35 16 L 35 29 L 48 29 L 48 24 L 57 32 L 48 40 L 48 35 L 35 35 L 35 48 L 40 48 L 32 57 L 24 48 L 29 48 L 29 35 L 16 35 L 16 40 L 7 32 L 16 24 L 16 29 L 29 29 L 29 16 Z" />
+  <path class="outline-stroke" d="M 24 16 L 32 7 L 40 16 L 35 16 L 35 29 L 48 29 L 48 24 L 57 32 L 48 40 L 48 35 L 35 35 L 35 48 L 40 48 L 32 57 L 24 48 L 29 48 L 29 35 L 16 35 L 16 40 L 7 32 L 16 24 L 16 29 L 29 29 L 29 16 Z" />
 
   <!-- Purple Pivot Center Diamond -->
-  <polygon class="accent-fill" points="32,27 37,32 32,37 27,32" />
+  <polygon class="accent-fill" points="32,26.5 37.5,32 32,37.5 26.5,32" />
 """
 }
 
@@ -324,11 +324,11 @@ ICONS["alternate_select"] = {
     "key": "UpArrow",
     "filename": "mono_alternate_select",
     "name": "Alternate Select",
-    "hotspot": (32 / 64, 7 / 64),
+    "hotspot": (32 / 64, 6 / 64),
     "svg": """
   <!-- Solid Black Upward Arrow with Pale Lilac Outline -->
-  <path class="contrast-stroke" d="M 21 21 L 32 7 L 43 21 L 35 21 L 35 56 L 29 56 L 29 21 Z" />
-  <path class="outline-stroke" d="M 21 21 L 32 7 L 43 21 L 35 21 L 35 56 L 29 56 L 29 21 Z" />
+  <path class="contrast-stroke" d="M 21 20 L 32 6 L 43 20 L 35 20 L 35 57 L 29 57 L 29 20 Z" />
+  <path class="outline-stroke" d="M 21 20 L 32 6 L 43 20 L 35 20 L 35 57 L 29 57 L 29 20 Z" />
 """
 }
 
@@ -337,20 +337,20 @@ ICONS["link_select"] = {
     "key": "Hand",
     "filename": "mono_link_select",
     "name": "Link Select",
-    "hotspot": (20 / 64, 20 / 64),
+    "hotspot": (19 / 64, 19 / 64),
     "svg": """
   <!-- Two Interlocking Rounded Chain Links with Solid Black Fill -->
   <!-- Upper Left Link -->
-  <rect class="contrast-stroke" x="12" y="12" width="25" height="14" rx="7" ry="7" transform="rotate(-45 24.5 19)" />
+  <rect class="contrast-stroke" x="11.5" y="11.5" width="26" height="14.5" rx="7.25" ry="7.25" transform="rotate(-45 24.5 18.75)" />
   <!-- Lower Right Link -->
-  <rect class="contrast-stroke" x="27" y="27" width="25" height="14" rx="7" ry="7" transform="rotate(-45 39.5 34)" />
+  <rect class="contrast-stroke" x="26.5" y="26.5" width="26" height="14.5" rx="7.25" ry="7.25" transform="rotate(-45 39.5 33.75)" />
 
-  <rect class="outline-stroke" x="12" y="12" width="25" height="14" rx="7" ry="7" transform="rotate(-45 24.5 19)" />
-  <rect class="outline-stroke" x="27" y="27" width="25" height="14" rx="7" ry="7" transform="rotate(-45 39.5 34)" />
+  <rect class="outline-stroke" x="11.5" y="11.5" width="26" height="14.5" rx="7.25" ry="7.25" transform="rotate(-45 24.5 18.75)" />
+  <rect class="outline-stroke" x="26.5" y="26.5" width="26" height="14.5" rx="7.25" ry="7.25" transform="rotate(-45 39.5 33.75)" />
 
   <!-- Purple Connection Accent Pill at Junction -->
-  <circle cx="32" cy="32" r="5.5" fill="#000000" />
-  <circle class="accent-fill" cx="32" cy="32" r="4" />
+  <circle cx="32" cy="32" r="5.8" fill="#000000" />
+  <circle class="accent-fill" cx="32" cy="32" r="4.2" />
 """
 }
 
@@ -359,23 +359,23 @@ ICONS["location_select"] = {
     "key": "Pin",
     "filename": "mono_location_select",
     "name": "Location Select",
-    "hotspot": (32 / 64, 58 / 64),
+    "hotspot": (32 / 64, 59 / 64),
     "svg": """
-  <!-- Teardrop Map Pin Silhouette with Solid Black Body Pointing to (32, 58) -->
-  <path class="contrast-stroke" d="M 32 58 
-           C 18 43, 13 34, 13 24 
-           C 13 13.5, 21.5 5, 32 5 
-           C 42.5 5, 51 13.5, 51 24 
-           C 51 34, 46 43, 32 58 Z" />
+  <!-- Teardrop Map Pin Silhouette with Solid Black Body Pointing to (32, 59) -->
+  <path class="contrast-stroke" d="M 32 59 
+           C 17.5 43.5, 12.5 34.5, 12.5 24 
+           C 12.5 13, 21.2 4.5, 32 4.5 
+           C 42.8 4.5, 51.5 13, 51.5 24 
+           C 51.5 34.5, 46.5 43.5, 32 59 Z" />
 
-  <path class="outline-stroke" d="M 32 58 
-           C 18 43, 13 34, 13 24 
-           C 13 13.5, 21.5 5, 32 5 
-           C 42.5 5, 51 13.5, 51 24 
-           C 51 34, 46 43, 32 58 Z" />
+  <path class="outline-stroke" d="M 32 59 
+           C 17.5 43.5, 12.5 34.5, 12.5 24 
+           C 12.5 13, 21.2 4.5, 32 4.5 
+           C 42.8 4.5, 51.5 13, 51.5 24 
+           C 51.5 34.5, 46.5 43.5, 32 59 Z" />
 
   <!-- Filled Purple Accent Center Dot -->
-  <circle class="accent-fill" cx="32" cy="24" r="5.8" />
+  <circle class="accent-fill" cx="32" cy="24" r="6.0" />
 """
 }
 
@@ -388,15 +388,15 @@ ICONS["person_select"] = {
     "svg": """
   <!-- Solid Black Person / User Silhouette (Head + Torso) -->
   <!-- Head -->
-  <circle class="contrast-stroke" cx="32" cy="16" r="9" />
-  <circle class="outline-stroke" cx="32" cy="16" r="9" />
+  <circle class="contrast-stroke" cx="32" cy="15.5" r="9.5" />
+  <circle class="outline-stroke" cx="32" cy="15.5" r="9.5" />
 
   <!-- Torso Base -->
-  <path class="contrast-stroke" d="M 12 53 C 12 41, 20 37, 32 37 C 44 37, 52 41, 52 53 Z" />
-  <path class="outline-stroke" d="M 12 53 C 12 41, 20 37, 32 37 C 44 37, 52 41, 52 53 Z" />
+  <path class="contrast-stroke" d="M 11 54 C 11 41.5, 19.5 37.5, 32 37.5 C 44.5 37.5, 53 41.5, 53 54 Z" />
+  <path class="outline-stroke" d="M 11 54 C 11 41.5, 19.5 37.5, 32 37.5 C 44.5 37.5, 53 41.5, 53 54 Z" />
 
   <!-- Purple Accent at Collar -->
-  <rect class="accent-fill" x="29" y="36" width="6" height="2.5" rx="1.25" />
+  <rect class="accent-fill" x="28.8" y="36.5" width="6.4" height="2.6" rx="1.3" />
 """
 }
 

@@ -4,14 +4,14 @@
       .contrast-stroke {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -19,14 +19,14 @@
       .contrast-stroke-hollow {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
       }
       .outline-stroke-hollow {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -34,14 +34,14 @@
       .contrast-stroke-lean {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 6.8;
+        stroke-width: 7.0;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke-lean {
         stroke: #F5F1FF;
-        stroke-width: 4.0;
+        stroke-width: 4.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -51,7 +51,7 @@
       }
       .accent-stroke {
         stroke: #B18CFF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -67,24 +67,24 @@
   </defs>
 
   <!-- Outer Dark Contrast Stroke + Solid Black Body -->
-  <path class="contrast-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="contrast-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Pale Lilac-White Outline with Solid Black Fill -->
-  <path class="outline-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="outline-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Floating Purple Accent Pill in Heel -->
-  <rect class="accent-fill" x="13.8" y="39" width="4.4" height="10.5" rx="2.2" />
+  <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
 
 </svg>

@@ -4,14 +4,14 @@
       .contrast-stroke {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -19,14 +19,14 @@
       .contrast-stroke-hollow {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
       }
       .outline-stroke-hollow {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -34,14 +34,14 @@
       .contrast-stroke-lean {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 6.8;
+        stroke-width: 7.0;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke-lean {
         stroke: #F5F1FF;
-        stroke-width: 4.0;
+        stroke-width: 4.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -51,7 +51,7 @@
       }
       .accent-stroke {
         stroke: #B18CFF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -66,7 +66,7 @@
     </style>
   </defs>
 
-  <!-- Solid Black NW to SE Diagonal Arrow (Scaled -10% for Optical Balance) -->
+  <!-- Solid Black NW to SE Diagonal Arrow (Scaled for Optical Balance) -->
   <path class="contrast-stroke" d="M 13 25 L 13 13 L 25 13 L 20 18 L 46 44 L 51 39 L 51 51 L 39 51 L 44 46 L 18 20 Z" />
   <path class="outline-stroke" d="M 13 25 L 13 13 L 25 13 L 20 18 L 46 44 L 51 39 L 51 51 L 39 51 L 44 46 L 18 20 Z" />
 

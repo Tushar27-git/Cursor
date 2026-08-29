@@ -4,14 +4,14 @@
       .contrast-stroke {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -19,14 +19,14 @@
       .contrast-stroke-hollow {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
       }
       .outline-stroke-hollow {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -34,14 +34,14 @@
       .contrast-stroke-lean {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 6.8;
+        stroke-width: 7.0;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke-lean {
         stroke: #F5F1FF;
-        stroke-width: 4.0;
+        stroke-width: 4.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -51,7 +51,7 @@
       }
       .accent-stroke {
         stroke: #B18CFF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -67,11 +67,11 @@
   </defs>
 
   <!-- Solid Black Circle with Pale Lilac Ring & Purple Slash -->
-  <circle class="contrast-stroke" cx="32" cy="32" r="21" />
-  <circle class="outline-stroke" cx="32" cy="32" r="21" />
+  <circle class="contrast-stroke" cx="32" cy="32" r="22" />
+  <circle class="outline-stroke" cx="32" cy="32" r="22" />
 
   <!-- Purple Diagonal Accent Slash -->
-  <line class="contrast-stroke-hollow" x1="17" y1="17" x2="47" y2="47" />
-  <line class="accent-stroke" x1="17" y1="17" x2="47" y2="47" />
+  <line class="contrast-stroke-hollow" x1="16.5" y1="16.5" x2="47.5" y2="47.5" />
+  <line class="accent-stroke" x1="16.5" y1="16.5" x2="47.5" y2="47.5" />
 
 </svg>

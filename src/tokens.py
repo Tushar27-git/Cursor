@@ -1,6 +1,6 @@
 """
 MONO Cursor Pack - Design Tokens & Common Templates
-Updated: Solid black body fill (#000000) & +15% scaled up geometry.
+Updated: +3.5% scale fine-tuning with 5.2px bold stroke.
 """
 
 # Color Palette Tokens
@@ -13,10 +13,10 @@ CONTRAST_OPACITY = "0.75"
 
 # Dimensions & Geometry
 CANVAS_SIZE = 64
-STROKE_WIDTH_MAIN = 5.0           # Bold tactile stroke
-STROKE_WIDTH_CONTRAST = 8.0       # Outer halo (+3.0px total -> ~1.5px on each side)
-STROKE_WIDTH_LEAN = 4.0
-STROKE_WIDTH_LEAN_CONTRAST = 6.8
+STROKE_WIDTH_MAIN = 5.2           # Finely tuned bold stroke (+3.5% scale)
+STROKE_WIDTH_CONTRAST = 8.2       # Outer halo
+STROKE_WIDTH_LEAN = 4.2
+STROKE_WIDTH_LEAN_CONTRAST = 7.0
 
 def wrap_svg(body_content, width=64, height=64):
     """

@@ -4,14 +4,14 @@
       .contrast-stroke {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -19,14 +19,14 @@
       .contrast-stroke-hollow {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
       }
       .outline-stroke-hollow {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -34,14 +34,14 @@
       .contrast-stroke-lean {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 6.8;
+        stroke-width: 7.0;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke-lean {
         stroke: #F5F1FF;
-        stroke-width: 4.0;
+        stroke-width: 4.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -51,7 +51,7 @@
       }
       .accent-stroke {
         stroke: #B18CFF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -67,34 +67,34 @@
   </defs>
 
   <!-- Base Pointer Contrast + Solid Black -->
-  <path class="contrast-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="contrast-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Base Pointer Outline -->
-  <path class="outline-stroke" d="M 11 6
-           C 24 17, 43 28, 50 49
-           C 51.2 52.5, 47 55.5, 43.5 52
-           C 34.5 43.5, 27 36, 22.5 37.8
-           C 17 39.5, 14.5 49, 13.5 53
-           C 12 56.5, 10.5 55.5, 10.5 51
+  <path class="outline-stroke" d="M 10 5
+           C 24 16, 44 28, 52 50
+           C 53.2 53.8, 48.8 57, 45 53.5
+           C 35.5 44.5, 27.5 36.5, 22.8 38.5
+           C 17 40.5, 14 50.5, 13 54.8
+           C 11.5 58.5, 9.5 57.5, 9.5 52.5
            Z" />
 
   <!-- Purple Pill in Heel -->
-  <rect class="accent-fill" x="13.8" y="39" width="4.4" height="10.5" rx="2.2" />
+  <rect class="accent-fill" x="13.2" y="39.5" width="4.6" height="11" rx="2.3" />
 
   <!-- Help Circle Badge at Lower Right (Solid Mask + Lilac Circle) -->
-  <circle cx="51" cy="49" r="10" fill="#000000" />
-  <circle class="contrast-stroke-lean" cx="51" cy="49" r="8.8" />
-  <circle class="accent-fill" cx="51" cy="49" r="8.5" />
+  <circle cx="52" cy="50" r="10.5" fill="#000000" />
+  <circle class="contrast-stroke-lean" cx="52" cy="50" r="9.2" />
+  <circle class="accent-fill" cx="52" cy="50" r="8.8" />
   
   <!-- Question Mark Inside Badge -->
-  <path d="M 48.6 45.8 C 48.6 43.8 49.9 42.8 51.2 42.8 C 52.6 42.8 53.6 43.8 53.6 45 C 53.6 46.2 52.6 47 51.6 47.8 L 51.6 49.2" 
-        stroke="#F5F1FF" stroke-width="2" stroke-linecap="round" fill="none" />
-  <circle cx="51.6" cy="52.6" r="1.2" fill="#F5F1FF" />
+  <path d="M 49.5 46.5 C 49.5 44.4 50.8 43.4 52.2 43.4 C 53.6 43.4 54.7 44.4 54.7 45.7 C 54.7 47 53.6 47.8 52.6 48.6 L 52.6 50.1" 
+        stroke="#F5F1FF" stroke-width="2.1" stroke-linecap="round" fill="none" />
+  <circle cx="52.6" cy="53.5" r="1.2" fill="#F5F1FF" />
 
 </svg>

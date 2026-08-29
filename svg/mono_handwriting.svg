@@ -4,14 +4,14 @@
       .contrast-stroke {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -19,14 +19,14 @@
       .contrast-stroke-hollow {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 8.0;
+        stroke-width: 8.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
       }
       .outline-stroke-hollow {
         stroke: #F5F1FF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -34,14 +34,14 @@
       .contrast-stroke-lean {
         stroke: #000000;
         stroke-opacity: 0.75;
-        stroke-width: 6.8;
+        stroke-width: 7.0;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
       }
       .outline-stroke-lean {
         stroke: #F5F1FF;
-        stroke-width: 4.0;
+        stroke-width: 4.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: #000000;
@@ -51,7 +51,7 @@
       }
       .accent-stroke {
         stroke: #B18CFF;
-        stroke-width: 5.0;
+        stroke-width: 5.2;
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
@@ -66,28 +66,28 @@
     </style>
   </defs>
 
-  <!-- Diagonal Pencil Outline with Solid Black Fill pointing to (10, 54) -->
-  <path class="contrast-stroke" d="M 49 14 
-           C 53 10, 57 14, 54 18 
+  <!-- Diagonal Pencil Outline with Solid Black Fill pointing to (9, 55) -->
+  <path class="contrast-stroke" d="M 50 13 
+           C 54 9, 58 13, 55 17 
            L 24 48 
-           L 10 54 
+           L 9 55 
            L 16 40 
-           L 46 10 
-           C 47 9, 48 9, 49 10 Z" />
+           L 47 9 
+           C 48 8, 49 8, 50 9 Z" />
   
-  <path class="outline-stroke" d="M 49 14 
-           C 53 10, 57 14, 54 18 
+  <path class="outline-stroke" d="M 50 13 
+           C 54 9, 58 13, 55 17 
            L 24 48 
-           L 10 54 
+           L 9 55 
            L 16 40 
-           L 46 10 
-           C 47 9, 48 9, 49 10 Z" />
+           L 47 9 
+           C 48 8, 49 8, 50 9 Z" />
 
   <!-- Pencil Collar Line -->
-  <line class="contrast-stroke-lean" x1="20" y1="44" x2="26" y2="50" />
-  <line class="outline-stroke-lean" x1="20" y1="44" x2="26" y2="50" />
+  <line class="contrast-stroke-lean" x1="19.5" y1="43.5" x2="26.5" y2="50.5" />
+  <line class="outline-stroke-lean" x1="19.5" y1="43.5" x2="26.5" y2="50.5" />
 
   <!-- Purple Filled Tip Lead -->
-  <path class="accent-fill" d="M 10 54 L 17 44 L 23 50 Z" />
+  <path class="accent-fill" d="M 9 55 L 16.5 44 L 23.5 51 Z" />
 
 </svg>
